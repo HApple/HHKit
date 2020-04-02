@@ -14,7 +14,7 @@
 //Util
 #import "NSString+Localize.h"
 #import "UIImage+HHUtilities.h"
-#import "UIScreen+HHUtilities.h"
+#import "UIDevice+HHUtilities.h"
 
 
 #import "HHUIDefine.h"
