@@ -14,6 +14,10 @@
 		CD52A7D024342A0E000C432E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD52A7CE24342A0E000C432E /* LaunchScreen.storyboard */; };
 		CD52A7D324342A0E000C432E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52A7D224342A0E000C432E /* main.m */; };
 		CD52A7E224342F58000C432E /* UIImage+HHUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52A7E124342F58000C432E /* UIImage+HHUtilities.m */; };
+		CD52A7F124348EC2000C432E /* NSString+Localize.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52A7EB24348EC2000C432E /* NSString+Localize.m */; };
+		CD52A7F8243490F9000C432E /* UIView+XIBLocalizable.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52A7F7243490F9000C432E /* UIView+XIBLocalizable.m */; };
+		CD52A7FB24349814000C432E /* UIDevice+HHUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52A7FA24349814000C432E /* UIDevice+HHUtilities.m */; };
+		CD52A7FF2435826B000C432E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD52A7FE2435826B000C432E /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,13 @@
 		CD52A7DB24342ADD000C432E /* HHUIDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHUIDefine.h; sourceTree = "<group>"; };
 		CD52A7E024342F58000C432E /* UIImage+HHUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+HHUtilities.h"; sourceTree = "<group>"; };
 		CD52A7E124342F58000C432E /* UIImage+HHUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+HHUtilities.m"; sourceTree = "<group>"; };
+		CD52A7E824348EC2000C432E /* NSString+Localize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Localize.h"; sourceTree = "<group>"; };
+		CD52A7EB24348EC2000C432E /* NSString+Localize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Localize.m"; sourceTree = "<group>"; };
+		CD52A7F6243490F9000C432E /* UIView+XIBLocalizable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+XIBLocalizable.h"; sourceTree = "<group>"; };
+		CD52A7F7243490F9000C432E /* UIView+XIBLocalizable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+XIBLocalizable.m"; sourceTree = "<group>"; };
+		CD52A7F924349814000C432E /* UIDevice+HHUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIDevice+HHUtilities.h"; sourceTree = "<group>"; };
+		CD52A7FA24349814000C432E /* UIDevice+HHUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+HHUtilities.m"; sourceTree = "<group>"; };
+		CD52A7FE2435826B000C432E /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +84,7 @@
 				CD52A7C724342A0D000C432E /* ViewController.m */,
 				CD52A7CC24342A0E000C432E /* Assets.xcassets */,
 				CD52A7CE24342A0E000C432E /* LaunchScreen.storyboard */,
+				CD52A7FE2435826B000C432E /* Main.storyboard */,
 				CD52A7D124342A0E000C432E /* Info.plist */,
 				CD52A7D224342A0E000C432E /* main.m */,
 			);
@@ -92,8 +104,14 @@
 		CD52A7DC24342D19000C432E /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				CD52A7E824348EC2000C432E /* NSString+Localize.h */,
+				CD52A7EB24348EC2000C432E /* NSString+Localize.m */,
+				CD52A7F6243490F9000C432E /* UIView+XIBLocalizable.h */,
+				CD52A7F7243490F9000C432E /* UIView+XIBLocalizable.m */,
 				CD52A7E024342F58000C432E /* UIImage+HHUtilities.h */,
 				CD52A7E124342F58000C432E /* UIImage+HHUtilities.m */,
+				CD52A7F924349814000C432E /* UIDevice+HHUtilities.h */,
+				CD52A7FA24349814000C432E /* UIDevice+HHUtilities.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -155,6 +173,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD52A7FF2435826B000C432E /* Main.storyboard in Resources */,
 				CD52A7D024342A0E000C432E /* LaunchScreen.storyboard in Resources */,
 				CD52A7CD24342A0E000C432E /* Assets.xcassets in Resources */,
 			);
@@ -169,8 +188,11 @@
 			files = (
 				CD52A7C824342A0D000C432E /* ViewController.m in Sources */,
 				CD52A7C224342A0D000C432E /* AppDelegate.m in Sources */,
+				CD52A7F8243490F9000C432E /* UIView+XIBLocalizable.m in Sources */,
+				CD52A7F124348EC2000C432E /* NSString+Localize.m in Sources */,
 				CD52A7D324342A0E000C432E /* main.m in Sources */,
 				CD52A7E224342F58000C432E /* UIImage+HHUtilities.m in Sources */,
+				CD52A7FB24349814000C432E /* UIDevice+HHUtilities.m in Sources */,
 				CD52A7C524342A0D000C432E /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

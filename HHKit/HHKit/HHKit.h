@@ -9,7 +9,13 @@
 #ifndef HHKit_h
 #define HHKit_h
 
-//Util
-#import "UIImage+HHUtilities.h"
 
+
+//Util
+#import "NSString+Localize.h"
+#import "UIImage+HHUtilities.h"
+#import "UIScreen+HHUtilities.h"
+
+
+#import "HHUIDefine.h"
 #endif /* HHKit_h */

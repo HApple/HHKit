@@ -11,14 +11,14 @@
 
 
 //-----------------------------------  IPHONE_X 判断  ------------------------------------
-#define IS_IPHONE_X ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
-
+#define  IS_IPHONE_X  [UIDevice isIphoneXSeries]
 
 //-----------------------------------  状态栏 导航栏 底部高  ------------------------------------
-#define  kStatusBarHeight  (IS_IPHONE_X ?  44: 22)
-#define  kNavigationBar     44
-#define  kAppTopBarMargin  (kStatusBarHeight + kNavigationBar)
-#define  kTapBarHeight     (IS_IPHONE_X ? (49+33) : 49)
+#define  kSafeAreaInsetsTop       [UIDevice hh_safeAreaInsetsTop]
+#define  kSafeAreaInsetsBootom    [UIDevice hh_safeAreaInsetsBottom]
+#define  kStatusBarHeight         [UIDevice hh_statusBarHeight]
+#define  kNavBarHeight            [UIDevice hh_navBarHeight]
+#define  kTabBarHeight            [UIDevice hh_tabbarHeight]
 
 //-----------------------------------  设备的宽高  ------------------------------------
 #ifndef  kScreenWidth
@@ -29,8 +29,8 @@
 #define  kScreenHight        [UIScreen mainScreen].bounds.size.height
 #endif
 
-//-----------------------------------  屏幕适配，IPhone以750X1334为基准，750是宽，1334是高  ------------------------------------
-#define kFitScreen(x) [UIScreen fitScreen:x]
+//-----------------------------------  屏幕适配，以IPhone6为基准，375是宽，667是高  ------------------------------------
+#define kFitScreen(x) (x * (kScreenWidth / 375.0))
 #define kFontSize(x)  [UIFont systemFontOfSize:kFitScreen(x)]
 
 
