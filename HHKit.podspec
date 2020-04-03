@@ -13,12 +13,24 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.source_files = 'HHKit/HHKit/**/*.{h,m}'
   s.public_header_files = 'HHKit/HHKit/**/*.{h}'
+  
+  #二级目录
+  s.subspec 'Tool' do |tool|
+    tool.source_files = 'HHKit/HHKit/Tool/*.{h,m}'
+    end
+    
+  s.subspec 'Util' do |util|
+    util.source_files = 'HHKit/Util/Tool/*.{h,m}'
+    end
 
 
   #s.libraries = 'z', 'sqlite3'
   s.frameworks = 'UIKit', 'CoreFoundation', 'CoreText', 'CoreGraphics', 'CoreImage', 'QuartzCore', 'ImageIO', 'AssetsLibrary', 'Accelerate', 'MobileCoreServices', 'SystemConfiguration'
   #s.ios.vendored_frameworks = 'Vendor/WebP.framework'
   
-  #s.dependency "AFNetworking/NSURLSession", "~> 3.0"
-
+  s.dependency 'YBModelFile'
+  s.dependency 'AFNetworking'
+  s.dependency 'Masonry'
+  s.dependency 'MJRefresh'
+  s.dependency 'YYKit'
 end

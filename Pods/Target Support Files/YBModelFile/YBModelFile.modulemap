@@ -1,0 +1,6 @@
+framework module YBModelFile {
+  umbrella header "YBModelFile-umbrella.h"
+
+  export *
+  module * { export * }
+}

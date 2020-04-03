@@ -1,0 +1,6 @@
+framework module Pods_HHKit {
+  umbrella header "Pods-HHKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

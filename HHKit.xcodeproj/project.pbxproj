@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B3C5A80F1DA09E3160CC8019 /* Pods_HHKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71ED7596B9DE6DE0597251D4 /* Pods_HHKit.framework */; };
 		CD52A7C224342A0D000C432E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52A7C124342A0D000C432E /* AppDelegate.m */; };
 		CD52A7C524342A0D000C432E /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52A7C424342A0D000C432E /* SceneDelegate.m */; };
 		CD52A7C824342A0D000C432E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52A7C724342A0D000C432E /* ViewController.m */; };
@@ -14,13 +15,18 @@
 		CD52A7D024342A0E000C432E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD52A7CE24342A0E000C432E /* LaunchScreen.storyboard */; };
 		CD52A7D324342A0E000C432E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52A7D224342A0E000C432E /* main.m */; };
 		CD52A7E224342F58000C432E /* UIImage+HHUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52A7E124342F58000C432E /* UIImage+HHUtilities.m */; };
-		CD52A7F124348EC2000C432E /* NSString+Localize.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52A7EB24348EC2000C432E /* NSString+Localize.m */; };
-		CD52A7F8243490F9000C432E /* UIView+XIBLocalizable.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52A7F7243490F9000C432E /* UIView+XIBLocalizable.m */; };
 		CD52A7FB24349814000C432E /* UIDevice+HHUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52A7FA24349814000C432E /* UIDevice+HHUtilities.m */; };
 		CD52A7FF2435826B000C432E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD52A7FE2435826B000C432E /* Main.storyboard */; };
+		CD52A8032435D9C2000C432E /* HHTool.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52A8022435D9C2000C432E /* HHTool.m */; };
+		CD52A8062436C36D000C432E /* UIView+HHUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52A8052436C36D000C432E /* UIView+HHUtilities.m */; };
+		CD52A8092436C56C000C432E /* UIViewController+HHUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52A8082436C56C000C432E /* UIViewController+HHUtilities.m */; };
+		CD52A80C2436C589000C432E /* NSString+HHUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52A80B2436C589000C432E /* NSString+HHUtilities.m */; };
+		CD52A80F2436E77E000C432E /* UITextView+HHUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52A80E2436E77E000C432E /* UITextView+HHUtilities.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1BC49FA3366BFA82EDE1046F /* Pods-HHKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HHKit.debug.xcconfig"; path = "Target Support Files/Pods-HHKit/Pods-HHKit.debug.xcconfig"; sourceTree = "<group>"; };
+		71ED7596B9DE6DE0597251D4 /* Pods_HHKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HHKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD52A7BD24342A0D000C432E /* HHKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HHKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD52A7C024342A0D000C432E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CD52A7C124342A0D000C432E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -36,13 +42,20 @@
 		CD52A7DB24342ADD000C432E /* HHUIDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHUIDefine.h; sourceTree = "<group>"; };
 		CD52A7E024342F58000C432E /* UIImage+HHUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+HHUtilities.h"; sourceTree = "<group>"; };
 		CD52A7E124342F58000C432E /* UIImage+HHUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+HHUtilities.m"; sourceTree = "<group>"; };
-		CD52A7E824348EC2000C432E /* NSString+Localize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Localize.h"; sourceTree = "<group>"; };
-		CD52A7EB24348EC2000C432E /* NSString+Localize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Localize.m"; sourceTree = "<group>"; };
-		CD52A7F6243490F9000C432E /* UIView+XIBLocalizable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+XIBLocalizable.h"; sourceTree = "<group>"; };
-		CD52A7F7243490F9000C432E /* UIView+XIBLocalizable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+XIBLocalizable.m"; sourceTree = "<group>"; };
 		CD52A7F924349814000C432E /* UIDevice+HHUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIDevice+HHUtilities.h"; sourceTree = "<group>"; };
 		CD52A7FA24349814000C432E /* UIDevice+HHUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+HHUtilities.m"; sourceTree = "<group>"; };
 		CD52A7FE2435826B000C432E /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		CD52A8012435D9C1000C432E /* HHTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHTool.h; sourceTree = "<group>"; };
+		CD52A8022435D9C2000C432E /* HHTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHTool.m; sourceTree = "<group>"; };
+		CD52A8042436C36D000C432E /* UIView+HHUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+HHUtilities.h"; sourceTree = "<group>"; };
+		CD52A8052436C36D000C432E /* UIView+HHUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+HHUtilities.m"; sourceTree = "<group>"; };
+		CD52A8072436C56C000C432E /* UIViewController+HHUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HHUtilities.h"; sourceTree = "<group>"; };
+		CD52A8082436C56C000C432E /* UIViewController+HHUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HHUtilities.m"; sourceTree = "<group>"; };
+		CD52A80A2436C589000C432E /* NSString+HHUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+HHUtilities.h"; sourceTree = "<group>"; };
+		CD52A80B2436C589000C432E /* NSString+HHUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+HHUtilities.m"; sourceTree = "<group>"; };
+		CD52A80D2436E77E000C432E /* UITextView+HHUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextView+HHUtilities.h"; sourceTree = "<group>"; };
+		CD52A80E2436E77E000C432E /* UITextView+HHUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextView+HHUtilities.m"; sourceTree = "<group>"; };
+		E95D21ADBFBCB9CA2C1C7801 /* Pods-HHKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HHKit.release.xcconfig"; path = "Target Support Files/Pods-HHKit/Pods-HHKit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,17 +63,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3C5A80F1DA09E3160CC8019 /* Pods_HHKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8BF774427F80F3582DC2D5E2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				71ED7596B9DE6DE0597251D4 /* Pods_HHKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AD387E3400A7B60FB2681802 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1BC49FA3366BFA82EDE1046F /* Pods-HHKit.debug.xcconfig */,
+				E95D21ADBFBCB9CA2C1C7801 /* Pods-HHKit.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		CD52A7B424342A0D000C432E = {
 			isa = PBXGroup;
 			children = (
 				CD52A7BF24342A0D000C432E /* HHKit */,
 				CD52A7BE24342A0D000C432E /* Products */,
+				AD387E3400A7B60FB2681802 /* Pods */,
+				8BF774427F80F3582DC2D5E2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +129,7 @@
 			children = (
 				CD52A7DA24342AA9000C432E /* HHKit.h */,
 				CD52A7DB24342ADD000C432E /* HHUIDefine.h */,
+				CD52A8002435D395000C432E /* Tool */,
 				CD52A7DC24342D19000C432E /* Util */,
 			);
 			path = HHKit;
@@ -104,16 +138,29 @@
 		CD52A7DC24342D19000C432E /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				CD52A7E824348EC2000C432E /* NSString+Localize.h */,
-				CD52A7EB24348EC2000C432E /* NSString+Localize.m */,
-				CD52A7F6243490F9000C432E /* UIView+XIBLocalizable.h */,
-				CD52A7F7243490F9000C432E /* UIView+XIBLocalizable.m */,
+				CD52A80A2436C589000C432E /* NSString+HHUtilities.h */,
+				CD52A80B2436C589000C432E /* NSString+HHUtilities.m */,
 				CD52A7E024342F58000C432E /* UIImage+HHUtilities.h */,
 				CD52A7E124342F58000C432E /* UIImage+HHUtilities.m */,
 				CD52A7F924349814000C432E /* UIDevice+HHUtilities.h */,
 				CD52A7FA24349814000C432E /* UIDevice+HHUtilities.m */,
+				CD52A8042436C36D000C432E /* UIView+HHUtilities.h */,
+				CD52A8052436C36D000C432E /* UIView+HHUtilities.m */,
+				CD52A8072436C56C000C432E /* UIViewController+HHUtilities.h */,
+				CD52A8082436C56C000C432E /* UIViewController+HHUtilities.m */,
+				CD52A80D2436E77E000C432E /* UITextView+HHUtilities.h */,
+				CD52A80E2436E77E000C432E /* UITextView+HHUtilities.m */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		CD52A8002435D395000C432E /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				CD52A8012435D9C1000C432E /* HHTool.h */,
+				CD52A8022435D9C2000C432E /* HHTool.m */,
+			);
+			path = Tool;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,9 +170,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CD52A7D624342A0E000C432E /* Build configuration list for PBXNativeTarget "HHKit" */;
 			buildPhases = (
+				371E40881E6876411209CB6E /* [CP] Check Pods Manifest.lock */,
 				CD52A7B924342A0D000C432E /* Sources */,
 				CD52A7BA24342A0D000C432E /* Frameworks */,
 				CD52A7BB24342A0D000C432E /* Resources */,
+				C959A3E519424E4E8E9938EB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -181,19 +230,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		371E40881E6876411209CB6E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HHKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C959A3E519424E4E8E9938EB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HHKit/Pods-HHKit-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HHKit/Pods-HHKit-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HHKit/Pods-HHKit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CD52A7B924342A0D000C432E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				CD52A7C824342A0D000C432E /* ViewController.m in Sources */,
+				CD52A8062436C36D000C432E /* UIView+HHUtilities.m in Sources */,
 				CD52A7C224342A0D000C432E /* AppDelegate.m in Sources */,
-				CD52A7F8243490F9000C432E /* UIView+XIBLocalizable.m in Sources */,
-				CD52A7F124348EC2000C432E /* NSString+Localize.m in Sources */,
+				CD52A80C2436C589000C432E /* NSString+HHUtilities.m in Sources */,
 				CD52A7D324342A0E000C432E /* main.m in Sources */,
+				CD52A80F2436E77E000C432E /* UITextView+HHUtilities.m in Sources */,
 				CD52A7E224342F58000C432E /* UIImage+HHUtilities.m in Sources */,
 				CD52A7FB24349814000C432E /* UIDevice+HHUtilities.m in Sources */,
 				CD52A7C524342A0D000C432E /* SceneDelegate.m in Sources */,
+				CD52A8032435D9C2000C432E /* HHTool.m in Sources */,
+				CD52A8092436C56C000C432E /* UIViewController+HHUtilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +417,7 @@
 		};
 		CD52A7D724342A0E000C432E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1BC49FA3366BFA82EDE1046F /* Pods-HHKit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -341,6 +436,7 @@
 		};
 		CD52A7D824342A0E000C432E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E95D21ADBFBCB9CA2C1C7801 /* Pods-HHKit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

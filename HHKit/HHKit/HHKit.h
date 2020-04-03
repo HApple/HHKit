@@ -10,12 +10,20 @@
 #define HHKit_h
 
 
+//Tool
+#import "HHTool.h"
+
+
 
 //Util
-#import "NSString+Localize.h"
+#import "NSString+HHUtilities.h"
 #import "UIImage+HHUtilities.h"
 #import "UIDevice+HHUtilities.h"
+#import "UIView+HHUtilities.h"
+#import "UIViewController+HHUtilities.h"
+#import "UITextView+HHUtilities.h"
 
+//Pod
 
 #import "HHUIDefine.h"
 #endif /* HHKit_h */
