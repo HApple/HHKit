@@ -90,7 +90,7 @@
 /** 判断是否是数字字母组合 限制长度范围 [length1 - length2]*/
 - (BOOL)hh_checkAlphanumericComposeFromLimitLength1:(NSInteger)length1 andLimitLength2:(NSInteger)length2 {
     BOOL result = NO;
-    NSString * regex = [NSString stringWithFormat:@"^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{%ld,%ld}$",length1,length2];
+    NSString * regex = [NSString stringWithFormat:@"^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{%ld,%ld}$",(long)length1,(long)length2];
     NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
     result = [pred evaluateWithObject:self];
     return result;

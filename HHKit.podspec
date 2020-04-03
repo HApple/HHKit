@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
     end
     
   s.subspec 'Util' do |util|
-    util.source_files = 'HHKit/Util/Tool/*.{h,m}'
+    util.source_files = 'HHKit/HHKit/Util/*.{h,m}'
     end
 
 
