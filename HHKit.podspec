@@ -11,16 +11,15 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/HApple/HHKit.git', :tag => s.version }
   
   s.requires_arc = true
-  s.source_files = 'HHKit/HHKit/**/*.{h,m}'
-  s.public_header_files = 'HHKit/HHKit/**/*.{h}'
+  s.source_files = 'HHKit/HHKit/**/*'
   
   #二级目录
   s.subspec 'Tool' do |tool|
-    tool.source_files = 'HHKit/HHKit/Tool/*.{h,m}'
+    tool.source_files = 'HHKit/HHKit/Tool/**/*'
     end
     
   s.subspec 'Util' do |util|
-    util.source_files = 'HHKit/HHKit/Util/*.{h,m}'
+    util.source_files = 'HHKit/HHKit/Util/**/*'
     end
 
 

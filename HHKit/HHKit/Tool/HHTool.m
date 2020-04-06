@@ -8,6 +8,7 @@
 
 #import "HHTool.h"
 #import <YBModelFile/YBModelFile.h>
+#import <YYKit/YYKit.h>
 
 static HHTool *_hhTool = nil;
 

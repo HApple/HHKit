@@ -8,9 +8,12 @@
 
 #import "ViewController.h"
 #import "HHKit.h"
+#import "HHVC_TextField.h"
 
-@interface ViewController ()
-
+@interface ViewController () <UITableViewDelegate,UITableViewDataSource>
+@property (nonatomic, strong)UITableView *tableView;
+@property (nonatomic, strong)NSArray *classNames;
+@property (nonatomic, strong)NSArray *titles;
 @end
 
 @implementation ViewController
@@ -18,7 +21,60 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self setupDatas];
+    [self setupUI];
+}
+
+// MARK: - Datas
+- (void)setupDatas {
+    self.titles = @[@"UITextField"];
+    self.classNames = @[@"HHVC_TextField"];
 }
 
 
+// MARK: - UI
+- (void)setupUI {
+    
+    [self.view addSubview:self.tableView];
+    
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(UIEdgeInsetsZero);
+    }];
+}
+
+// MARK: - UITableViewDelegate,UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.classNames.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[UITableViewCell hh_cellIdentify] forIndexPath:indexPath];
+    cell.textLabel.text = self.titles[indexPath.row];
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *className = self.classNames[indexPath.row];
+    Class class = NSClassFromString(className);
+    if (class)
+    {
+        UIViewController *vc = class.new;
+        vc.title = self.titles[indexPath.row];
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }
+}
+
+// MARK: - Lazy Load
+- (UITableView *)tableView {
+    if (!_tableView) {
+        _tableView = [[UITableView alloc] init];
+        [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:[UITableViewCell hh_cellIdentify]];
+        _tableView.estimatedRowHeight = 44;
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        _tableView.tableFooterView = [UIView new];
+    }
+    return _tableView;
+}
 @end

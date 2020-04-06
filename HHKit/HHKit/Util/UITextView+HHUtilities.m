@@ -17,9 +17,8 @@
 
 @implementation UITextView (HHPlaceholder)
 
-#pragma mark - Swizzle Dealloc
+//MARK:  Swizzle Dealloc
 + (void)load {
-    // is this the best solution?
     method_exchangeImplementations(class_getInstanceMethod(self.class, NSSelectorFromString(@"dealloc")),
                                    class_getInstanceMethod(self.class, @selector(swizzledDealloc)));
 }
@@ -40,7 +39,7 @@
     [self swizzledDealloc];
 }
 
-#pragma mark - `observingKeys`
+//MARK:  `observingKeys`
 
 + (NSArray *)observingKeys {
     return @[@"attributedText",
@@ -53,8 +52,7 @@
 }
 
 
-
-#pragma mark - Placeholder
+//MARK:  Placeholder
 - (UILabel *)placeholderLabel {
     UILabel *label = objc_getAssociatedObject(self, @selector(placeholderLabel));
     if (!label) {
@@ -108,7 +106,8 @@
     return self.placeholderLabel.attributedText;
 }
 
-#pragma mark - KVO
+
+//MARK:  KVO
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
                       ofObject:(id)object
@@ -118,7 +117,7 @@
 }
 
 
-#pragma mark - Update
+//MARK:  Update
 
 - (void)hh_updatePlaceholderLabel {
     
@@ -128,26 +127,12 @@
          self.placeholderLabel.hidden = NO;
          [self insertSubview:self.placeholderLabel atIndex:0];
      }
+
     self.placeholderLabel.textAlignment = self.textAlignment;
 
-    // `NSTextContainer` is available since iOS 7
-    CGFloat lineFragmentPadding;
-    UIEdgeInsets textContainerInset;
-
-#pragma deploymate push "ignored-api-availability"
-    // iOS 7+
-    if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1) {
-        lineFragmentPadding = self.textContainer.lineFragmentPadding;
-        textContainerInset = self.textContainerInset;
-    }
-#pragma deploymate pop
-
-    // iOS 6
-    else {
-        lineFragmentPadding = 5;
-        textContainerInset = UIEdgeInsetsMake(8, 0, 8, 0);
-    }
-
+    CGFloat lineFragmentPadding = self.textContainer.lineFragmentPadding;
+    UIEdgeInsets textContainerInset = self.textContainerInset;
+    
     CGFloat x = lineFragmentPadding + textContainerInset.left;
     CGFloat y = textContainerInset.top;
     CGFloat width = CGRectGetWidth(self.bounds) - x - lineFragmentPadding - textContainerInset.right;

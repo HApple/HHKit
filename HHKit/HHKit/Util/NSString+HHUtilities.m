@@ -138,6 +138,18 @@
     return paramer;
 }
 
+/** 根据color font 生成 attributedString*/
+- (NSMutableAttributedString *)attributedStringWithColor:(UIColor *)color font:(UIFont *)font {
+    NSMutableAttributedString *attr = [[NSMutableAttributedString alloc] initWithString:self];
+    if (color) {
+        [attr addAttribute:NSForegroundColorAttributeName value:color range:NSMakeRange(0, self.length)];
+    }
+    if (font) {
+        [attr addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, self.length)];
+    }
+    return attr;
+}
+
 @end
 
 //MARK: -- Localize

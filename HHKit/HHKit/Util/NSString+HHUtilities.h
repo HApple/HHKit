@@ -30,6 +30,7 @@ typedef NS_ENUM(NSInteger,HHCheckPasswordType){
 - (NSString *)hh_hiddenPhoneNumber;
 /** 保留四位小数*/
 - (NSString *)hh_keepFourDecimal;
+
 /** 判断电话号码*/
 - (BOOL)hh_checkPhoneNumber;
 /** 判断身份证号*/
@@ -48,6 +49,8 @@ typedef NS_ENUM(NSInteger,HHCheckPasswordType){
 /** 获取URL中的参数*/
 - (NSDictionary *)hh_UrlParamers;
 
+/** 根据color font 生成 attributedString*/
+- (NSMutableAttributedString *)attributedStringWithColor:(UIColor *)color font:(UIFont *)font;
 
 @end
 

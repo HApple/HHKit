@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65263714243889FF008637D6 /* UITextField+HHUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 65263713243889FF008637D6 /* UITextField+HHUtilities.m */; };
+		652637192438D7DA008637D6 /* HHPhotoGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 652637182438D7DA008637D6 /* HHPhotoGroupView.m */; };
+		6526371E2439ABBD008637D6 /* HHVC_TextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6526371D2439ABBD008637D6 /* HHVC_TextField.m */; };
+		652637222439AE3D008637D6 /* HHBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 652637212439AE3D008637D6 /* HHBaseViewController.m */; };
+		65263727243AA15C008637D6 /* HHDataEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 65263726243AA15C008637D6 /* HHDataEntity.m */; };
+		6526372A243AA5D9008637D6 /* HHNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 65263729243AA5D9008637D6 /* HHNetManager.m */; };
 		B3C5A80F1DA09E3160CC8019 /* Pods_HHKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71ED7596B9DE6DE0597251D4 /* Pods_HHKit.framework */; };
 		CD52A7C224342A0D000C432E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52A7C124342A0D000C432E /* AppDelegate.m */; };
 		CD52A7C524342A0D000C432E /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52A7C424342A0D000C432E /* SceneDelegate.m */; };
@@ -26,6 +32,19 @@
 
 /* Begin PBXFileReference section */
 		1BC49FA3366BFA82EDE1046F /* Pods-HHKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HHKit.debug.xcconfig"; path = "Target Support Files/Pods-HHKit/Pods-HHKit.debug.xcconfig"; sourceTree = "<group>"; };
+		65263712243889FF008637D6 /* UITextField+HHUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+HHUtilities.h"; sourceTree = "<group>"; };
+		65263713243889FF008637D6 /* UITextField+HHUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+HHUtilities.m"; sourceTree = "<group>"; };
+		652637172438D7DA008637D6 /* HHPhotoGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHPhotoGroupView.h; sourceTree = "<group>"; };
+		652637182438D7DA008637D6 /* HHPhotoGroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHPhotoGroupView.m; sourceTree = "<group>"; };
+		6526371C2439ABBD008637D6 /* HHVC_TextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHVC_TextField.h; sourceTree = "<group>"; };
+		6526371D2439ABBD008637D6 /* HHVC_TextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHVC_TextField.m; sourceTree = "<group>"; };
+		652637202439AE3D008637D6 /* HHBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHBaseViewController.h; sourceTree = "<group>"; };
+		652637212439AE3D008637D6 /* HHBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHBaseViewController.m; sourceTree = "<group>"; };
+		652637232439AEB4008637D6 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		65263725243AA15C008637D6 /* HHDataEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHDataEntity.h; sourceTree = "<group>"; };
+		65263726243AA15C008637D6 /* HHDataEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHDataEntity.m; sourceTree = "<group>"; };
+		65263728243AA5D9008637D6 /* HHNetManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHNetManager.h; sourceTree = "<group>"; };
+		65263729243AA5D9008637D6 /* HHNetManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHNetManager.m; sourceTree = "<group>"; };
 		71ED7596B9DE6DE0597251D4 /* Pods_HHKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HHKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD52A7BD24342A0D000C432E /* HHKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HHKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD52A7C024342A0D000C432E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -39,7 +58,7 @@
 		CD52A7D124342A0E000C432E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD52A7D224342A0E000C432E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CD52A7DA24342AA9000C432E /* HHKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHKit.h; sourceTree = "<group>"; };
-		CD52A7DB24342ADD000C432E /* HHUIDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHUIDefine.h; sourceTree = "<group>"; };
+		CD52A7DB24342ADD000C432E /* HHKitMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHKitMacro.h; sourceTree = "<group>"; };
 		CD52A7E024342F58000C432E /* UIImage+HHUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+HHUtilities.h"; sourceTree = "<group>"; };
 		CD52A7E124342F58000C432E /* UIImage+HHUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+HHUtilities.m"; sourceTree = "<group>"; };
 		CD52A7F924349814000C432E /* UIDevice+HHUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIDevice+HHUtilities.h"; sourceTree = "<group>"; };
@@ -70,6 +89,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		652637152438D76E008637D6 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				652637162438D7C4008637D6 /* HHPotoGroupView */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		652637162438D7C4008637D6 /* HHPotoGroupView */ = {
+			isa = PBXGroup;
+			children = (
+				652637172438D7DA008637D6 /* HHPhotoGroupView.h */,
+				652637182438D7DA008637D6 /* HHPhotoGroupView.m */,
+			);
+			path = HHPotoGroupView;
+			sourceTree = "<group>";
+		};
+		6526371A2439AB73008637D6 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				6526371F2439AE2E008637D6 /* Base */,
+				6526371B2439AB81008637D6 /* UITextField */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		6526371B2439AB81008637D6 /* UITextField */ = {
+			isa = PBXGroup;
+			children = (
+				6526371C2439ABBD008637D6 /* HHVC_TextField.h */,
+				6526371D2439ABBD008637D6 /* HHVC_TextField.m */,
+			);
+			path = UITextField;
+			sourceTree = "<group>";
+		};
+		6526371F2439AE2E008637D6 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				652637202439AE3D008637D6 /* HHBaseViewController.h */,
+				652637212439AE3D008637D6 /* HHBaseViewController.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		65263724243AA121008637D6 /* HHNetManager */ = {
+			isa = PBXGroup;
+			children = (
+				65263725243AA15C008637D6 /* HHDataEntity.h */,
+				65263726243AA15C008637D6 /* HHDataEntity.m */,
+				65263728243AA5D9008637D6 /* HHNetManager.h */,
+				65263729243AA5D9008637D6 /* HHNetManager.m */,
+			);
+			path = HHNetManager;
+			sourceTree = "<group>";
+		};
 		8BF774427F80F3582DC2D5E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +164,7 @@
 		CD52A7B424342A0D000C432E = {
 			isa = PBXGroup;
 			children = (
+				652637232439AEB4008637D6 /* PrefixHeader.pch */,
 				CD52A7BF24342A0D000C432E /* HHKit */,
 				CD52A7BE24342A0D000C432E /* Products */,
 				AD387E3400A7B60FB2681802 /* Pods */,
@@ -115,6 +190,7 @@
 				CD52A7C424342A0D000C432E /* SceneDelegate.m */,
 				CD52A7C624342A0D000C432E /* ViewController.h */,
 				CD52A7C724342A0D000C432E /* ViewController.m */,
+				6526371A2439AB73008637D6 /* Demo */,
 				CD52A7CC24342A0E000C432E /* Assets.xcassets */,
 				CD52A7CE24342A0E000C432E /* LaunchScreen.storyboard */,
 				CD52A7FE2435826B000C432E /* Main.storyboard */,
@@ -128,7 +204,9 @@
 			isa = PBXGroup;
 			children = (
 				CD52A7DA24342AA9000C432E /* HHKit.h */,
-				CD52A7DB24342ADD000C432E /* HHUIDefine.h */,
+				CD52A7DB24342ADD000C432E /* HHKitMacro.h */,
+				65263724243AA121008637D6 /* HHNetManager */,
+				652637152438D76E008637D6 /* Component */,
 				CD52A8002435D395000C432E /* Tool */,
 				CD52A7DC24342D19000C432E /* Util */,
 			);
@@ -150,6 +228,8 @@
 				CD52A8082436C56C000C432E /* UIViewController+HHUtilities.m */,
 				CD52A80D2436E77E000C432E /* UITextView+HHUtilities.h */,
 				CD52A80E2436E77E000C432E /* UITextView+HHUtilities.m */,
+				65263712243889FF008637D6 /* UITextField+HHUtilities.h */,
+				65263713243889FF008637D6 /* UITextField+HHUtilities.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -277,14 +357,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65263727243AA15C008637D6 /* HHDataEntity.m in Sources */,
 				CD52A7C824342A0D000C432E /* ViewController.m in Sources */,
 				CD52A8062436C36D000C432E /* UIView+HHUtilities.m in Sources */,
 				CD52A7C224342A0D000C432E /* AppDelegate.m in Sources */,
 				CD52A80C2436C589000C432E /* NSString+HHUtilities.m in Sources */,
 				CD52A7D324342A0E000C432E /* main.m in Sources */,
 				CD52A80F2436E77E000C432E /* UITextView+HHUtilities.m in Sources */,
+				65263714243889FF008637D6 /* UITextField+HHUtilities.m in Sources */,
 				CD52A7E224342F58000C432E /* UIImage+HHUtilities.m in Sources */,
+				6526371E2439ABBD008637D6 /* HHVC_TextField.m in Sources */,
 				CD52A7FB24349814000C432E /* UIDevice+HHUtilities.m in Sources */,
+				652637222439AE3D008637D6 /* HHBaseViewController.m in Sources */,
+				652637192438D7DA008637D6 /* HHPhotoGroupView.m in Sources */,
+				6526372A243AA5D9008637D6 /* HHNetManager.m in Sources */,
 				CD52A7C524342A0D000C432E /* SceneDelegate.m in Sources */,
 				CD52A8032435D9C2000C432E /* HHTool.m in Sources */,
 				CD52A8092436C56C000C432E /* UIViewController+HHUtilities.m in Sources */,
