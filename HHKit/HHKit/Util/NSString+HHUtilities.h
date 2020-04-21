@@ -50,7 +50,11 @@ typedef NS_ENUM(NSInteger,HHCheckPasswordType){
 - (NSDictionary *)hh_UrlParamers;
 
 /** 根据color font 生成 attributedString*/
-- (NSMutableAttributedString *)attributedStringWithColor:(UIColor *)color font:(UIFont *)font;
+- (NSMutableAttributedString *)hh_attributedStringWithColor:(UIColor *)color font:(UIFont *)font;
+/** UTF8 Encoding*/
+- (NSString *)hh_UTF8_Encoding;
+/** html format*/
+- (NSString *)hh_htmlFormatString;
 
 @end
 

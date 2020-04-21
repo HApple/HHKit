@@ -139,7 +139,7 @@
 }
 
 /** 根据color font 生成 attributedString*/
-- (NSMutableAttributedString *)attributedStringWithColor:(UIColor *)color font:(UIFont *)font {
+- (NSMutableAttributedString *)hh_attributedStringWithColor:(UIColor *)color font:(UIFont *)font {
     NSMutableAttributedString *attr = [[NSMutableAttributedString alloc] initWithString:self];
     if (color) {
         [attr addAttribute:NSForegroundColorAttributeName value:color range:NSMakeRange(0, self.length)];
@@ -148,6 +148,35 @@
         [attr addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, self.length)];
     }
     return attr;
+}
+
+/** UTF8 Encoding*/
+- (NSString *)hh_UTF8_Encoding {
+    return [self stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLPathAllowedCharacterSet]];
+}
+
+/** html format*/
+- (NSString *)hh_htmlFormatString {
+    NSString *htmlString = [NSString stringWithFormat:@"<html> \n"
+                            "<head> \n"
+                            "<style type=\"text/css\"> \n"
+                            "body {font-size:13px;color:#363636;}\n"
+                            "a {font-size:13px;color:#333333;}\n"
+                            "</style> \n"
+                            "</head> \n"
+                            "<body>"
+                            "<script type='text/javascript'>"
+                            "window.onload = function(){\n"
+                            "var $img = document.getElementsByTagName('img');\n"
+                            "for(var p in  $img){\n"
+                            " $img[p].style.width = '100%%';\n"
+                            "$img[p].style.height ='auto'\n"
+                            "}\n"
+                            "}"
+                            "</script>%@"
+                            "</body>"
+                            "</html>",self];
+    return htmlString;
 }
 
 @end

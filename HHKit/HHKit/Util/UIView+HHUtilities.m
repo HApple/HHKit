@@ -114,3 +114,26 @@
     return @"";
 }
 @end
+
+// MARK: - Set Corner
+@implementation UIButton (SetCorner)
+
+- (void)hh_setCornorPosition:(HHCornerPosition)position
+                      radius:(CGFloat)radius
+                       color:(UIColor *)color
+                 borderWidth:(CGFloat)borderWidth {
+    
+    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:self.bounds
+                                               byRoundingCorners:position
+                                                     cornerRadii:CGSizeMake(radius, radius)];
+    
+    CAShapeLayer *layer = [CAShapeLayer layer];
+    [layer setFrame:self.bounds];
+    [layer setPath:path.CGPath];
+    [layer setStrokeColor:color.CGColor];
+    [layer setFillColor:color.CGColor];
+    [layer setLineWidth:borderWidth];
+
+    [self.layer setMask:layer];
+}
+@end

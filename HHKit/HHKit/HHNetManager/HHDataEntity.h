@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *urlString;
 /** 请求参数*/
 @property (nonatomic, copy) id parameters;
+/** 请求头 在默认请求头的基础上再增加自定义的*/
+@property (nonatomic, strong) NSDictionary *headers;
 /** 是否缓存响应*/
 @property (nonatomic, assign, getter=isNeedCache) BOOL needCache;
 

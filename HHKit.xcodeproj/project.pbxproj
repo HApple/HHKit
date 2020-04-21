@@ -28,6 +28,7 @@
 		CD52A8092436C56C000C432E /* UIViewController+HHUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52A8082436C56C000C432E /* UIViewController+HHUtilities.m */; };
 		CD52A80C2436C589000C432E /* NSString+HHUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52A80B2436C589000C432E /* NSString+HHUtilities.m */; };
 		CD52A80F2436E77E000C432E /* UITextView+HHUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52A80E2436E77E000C432E /* UITextView+HHUtilities.m */; };
+		CD52A812243C185A000C432E /* HHNetCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52A811243C185A000C432E /* HHNetCache.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,8 @@
 		CD52A80B2436C589000C432E /* NSString+HHUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+HHUtilities.m"; sourceTree = "<group>"; };
 		CD52A80D2436E77E000C432E /* UITextView+HHUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextView+HHUtilities.h"; sourceTree = "<group>"; };
 		CD52A80E2436E77E000C432E /* UITextView+HHUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextView+HHUtilities.m"; sourceTree = "<group>"; };
+		CD52A810243C185A000C432E /* HHNetCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHNetCache.h; sourceTree = "<group>"; };
+		CD52A811243C185A000C432E /* HHNetCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHNetCache.m; sourceTree = "<group>"; };
 		E95D21ADBFBCB9CA2C1C7801 /* Pods-HHKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HHKit.release.xcconfig"; path = "Target Support Files/Pods-HHKit/Pods-HHKit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -140,6 +143,8 @@
 				65263726243AA15C008637D6 /* HHDataEntity.m */,
 				65263728243AA5D9008637D6 /* HHNetManager.h */,
 				65263729243AA5D9008637D6 /* HHNetManager.m */,
+				CD52A810243C185A000C432E /* HHNetCache.h */,
+				CD52A811243C185A000C432E /* HHNetCache.m */,
 			);
 			path = HHNetManager;
 			sourceTree = "<group>";
@@ -369,6 +374,7 @@
 				6526371E2439ABBD008637D6 /* HHVC_TextField.m in Sources */,
 				CD52A7FB24349814000C432E /* UIDevice+HHUtilities.m in Sources */,
 				652637222439AE3D008637D6 /* HHBaseViewController.m in Sources */,
+				CD52A812243C185A000C432E /* HHNetCache.m in Sources */,
 				652637192438D7DA008637D6 /* HHPhotoGroupView.m in Sources */,
 				6526372A243AA5D9008637D6 /* HHNetManager.m in Sources */,
 				CD52A7C524342A0D000C432E /* SceneDelegate.m in Sources */,
