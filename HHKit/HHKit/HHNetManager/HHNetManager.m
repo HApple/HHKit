@@ -11,8 +11,7 @@
 #import <Photos/Photos.h>
 #import <AFNetworking.h>
 #import "AFNetworkActivityIndicatorManager.h"
-#import "HHNetCache.h"
-#import "HHDataEntity.h"
+
 
 
 static HHNetManager *shareNetManager = nil;
@@ -135,7 +134,7 @@ static HHNetManager *shareNetManager = nil;
                             urlString:(NSString *)urlString
                            parameters:(id)parameters
                               headers:(nullable NSDictionary <NSString *, NSString *> *)headers
-                        progressBlock:(HHDownloadProgressBlock)progressBlock
+                        progressBlock:(nullable HHDownloadProgressBlock)progressBlock
                          successBlock:(HHResponseSuccessBlock)successBlock
                          failureBlock:(HHResponseFailBlock)failureBlock {
     
@@ -164,17 +163,10 @@ static HHNetManager *shareNetManager = nil;
             break;
     }
 
-#if DEBUG
+#ifdef DEBUG
     if (self.isOpenLog) {
         NSString *isCache = isNeedCache ? @"开启":@"关闭";
-        HHLog(@"\n******************** 请求参数 ***************************");
-        HHLog(@"\n 缓存: %@\n",isCache);
-        HHLog(@"\n requestType: %@\n",isCache);
-        HHLog(@"\n request: %@\n",self.sessionManager.requestSerializer);
-        HHLog(@"\n response: %@\n",self.sessionManager.responseSerializer);
-        HHLog(@"\n timeOut: %f\n",self.timeoutInterval);
-        HHLog(@"\n httpheader: %@\n",self.sessionManager.requestSerializer.HTTPRequestHeaders);
-        HHLog(@"\n********************************************************");
+        HHLog(@"\n******************** 请求参数 ***************************\n 超时时间: %f\n\n 请求头: %@\n\n 缓存: %@\n\n 请求方式: %@\n\n 请求URL: %@\n\n 请求param: %@\n\n********************************************************" ,self.timeoutInterval,self.sessionManager.requestSerializer.HTTPRequestHeaders,isCache,requestType,urlString,parameters);
     }
 #endif
     
@@ -355,7 +347,7 @@ static HHNetManager *shareNetManager = nil;
  @return NSURLSessionTask
  */
 - (NSURLSessionTask *)requestGetWithEnity:(HHDataEntity *)entity
-                            progerssBlock:(HHDownloadProgressBlock)progressBlock
+                            progerssBlock:(nullable HHDownloadProgressBlock)progressBlock
                              successBlock:(HHResponseSuccessBlock)successBlock
                              failureBlock:(HHResponseFailBlock)failureBlock {
     
@@ -377,7 +369,7 @@ static HHNetManager *shareNetManager = nil;
  @return NSURLSessionTask
  */
 - (NSURLSessionTask *)requestPostWithEnity:(HHDataEntity *)entity
-                            progerssBlock:(HHDownloadProgressBlock)progressBlock
+                            progerssBlock:(nullable HHDownloadProgressBlock)progressBlock
                              successBlock:(HHResponseSuccessBlock)successBlock
                               failureBlock:(HHResponseFailBlock)failureBlock {
     if (!entity || ![entity isKindOfClass:[HHDataEntity class]]) {
@@ -397,7 +389,7 @@ static HHNetManager *shareNetManager = nil;
  @return NSURLSessionTask
  */
 - (NSURLSessionTask *)requestPutWithEnity:(HHDataEntity *)entity
-                            progerssBLock:(HHDownloadProgressBlock)progressBlock
+                            progerssBlock:(nullable HHDownloadProgressBlock)progressBlock
                              successBlock:(HHResponseSuccessBlock)successBlock
                              failureBlock:(HHResponseFailBlock)failureBlock {
     if (!entity || ![entity isKindOfClass:[HHDataEntity class]]) {
@@ -416,7 +408,7 @@ static HHNetManager *shareNetManager = nil;
  @return NSURLSessionTask
  */
 - (NSURLSessionTask *)requestDeleteWithEnity:(HHDataEntity *)entity
-                            progerssBlock:(HHDownloadProgressBlock)progressBlock
+                            progerssBlock:(nullable HHDownloadProgressBlock)progressBlock
                              successBlock:(HHResponseSuccessBlock)successBlock
                                 failureBlock:(HHResponseFailBlock)failureBlock {
     if (!entity || ![entity isKindOfClass:[HHDataEntity class]]) {
@@ -435,18 +427,91 @@ static HHNetManager *shareNetManager = nil;
  @param failureBlock 上传失败的回调
  @return NSURLSessionTask
  */
-- (NSURLSessionTask *)uploadImageWithEntity:(HHImageDataEntiy *)entity
-                              progressBlock:(HHUploadProgressBlock)progressBlock
+- (NSURLSessionTask *)uploadImageWithEntity:(HHImageDataEntity *)entity
+                              progressBlock:(nullable HHUploadProgressBlock)progressBlock
                                successBlock:(HHResponseSuccessBlock)successBlock
                                failureBlock:(HHResponseFailBlock)failureBlock {
     
-    if (!entity || ![entity isKindOfClass:[HHImageDataEntiy class]]) {
+    if (!entity || ![entity isKindOfClass:[HHImageDataEntity class]]) {
         return nil;
     }
     
+    /*! 检查地址中是否有中文*/
+    NSString *URLString = [NSURL URLWithString:entity.urlString] ? entity.urlString : entity.urlString.hh_UTF8_Encoding;
+#ifdef DEBUG
+    if (self.isOpenLog) {
+        HHLog(@"\n******************** 请求参数 ***************************\n 请求头: %@\n\n 请求方式: %@\n\n 请求URL: %@\n\n 请求param: %@\n********************************************************",self.sessionManager.requestSerializer.HTTPRequestHeaders,@"POST",entity.urlString,entity.parameters);
+    }
+#endif
+    NSURLSessionTask *sessionTask = nil;
+    sessionTask = [self.sessionManager POST:URLString parameters:entity.parameters headers:entity.headers constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        
+        /*! 处于性能考虑,将上传图片进行压缩*/
+        [entity.imageArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+           
+            /*! image的压缩方法*/
+            UIImage *resizedImage;
+            /*! 此处是使用原生系统相册*/
+            if ([obj isKindOfClass:[PHAsset class]]) {
+                PHAsset *asset = (PHAsset *)obj;
+                PHCachingImageManager *imageManager = [[PHCachingImageManager alloc] init];
+                [imageManager requestImageForAsset:asset targetSize:CGSizeMake(asset.pixelWidth, asset.pixelHeight) contentMode:PHImageContentModeAspectFit options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+                   
+                    if (self.isOpenLog) {
+                        HHLog(@" width:%f height:%f",result.size.width,result.size.height);
+                    }
+                   
+                    [self uploadImageWithFormData:formData resizedImage:result imageType:entity.imageType imageScale:entity.imageScale fileNames:entity.fileNames index:idx];
+                }];
+                
+            } else {
+                /*! 此处是使用其他第三方相册,可以自由定制压缩方法*/
+                resizedImage = obj;
+                [self uploadImageWithFormData:formData resizedImage:resizedImage imageType:entity.imageType imageScale:entity.imageScale fileNames:entity.fileNames index:idx];
+            }
+        
+        }];
+        
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+        if (self.isOpenLog) {
+            HHLog(@"上传进度--%lld, 总进度---%lld", uploadProgress.completedUnitCount, uploadProgress.totalUnitCount);
+        }
+        /*! 回到主线程刷新UI*/
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (progressBlock) {
+                progressBlock(uploadProgress.completedUnitCount, uploadProgress.totalUnitCount);
+            }
+        });
+
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        if (self.isOpenLog) {
+            HHLog(@"上传图片成功 = %@",responseObject);
+        }
+        if (successBlock) {
+            successBlock(responseObject,NO);
+        }
+        
+        [self.tasks removeObject:sessionTask];
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        if (self.isOpenLog) {
+            HHLog(@"错误信息: %@",error);
+        }
+        if (failureBlock) {
+            failureBlock(error);
+        }
+        [self.tasks removeObject:sessionTask];
+        
+    }];
     
-    
-    
+    if (sessionTask) {
+        [self.tasks addObject:sessionTask];
+    }
+    return sessionTask;
 }
 
 
@@ -458,10 +523,83 @@ static HHNetManager *shareNetManager = nil;
  @param successBlock 上传成功的回调
  @param failureBlock 上传失败的回调
  */
-- (void)uploadVideoWithEntity:(HHDataEntity *)entity
-                progressBlock:(HHUploadProgressBlock)progressBlock
+- (void)uploadVideoWithEntity:(HHFileDataEntity *)entity
+                progressBlock:(nullable HHUploadProgressBlock)progressBlock
                  successBlock:(HHResponseSuccessBlock)successBlock
                  failureBlock:(HHResponseFailBlock)failureBlock {
+    
+    if (!entity || entity.urlString == nil || ![entity isKindOfClass:[HHFileDataEntity class]]) {
+        return;
+    }
+    
+    
+    /*! 获得视频资源*/
+    AVURLAsset *avAsset = [AVURLAsset URLAssetWithURL:[NSURL fileURLWithPath:entity.filePath] options:nil];
+    /*! 创建日期格式化器*/
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd-HH:mm:ss"];
+    /*! 转化后直接写入Libraray---caches*/
+    NSString *videoWritePath = [NSString stringWithFormat:@"output-%@.mp4",[formatter stringFromDate:[NSDate date]]];
+    NSString *outfilePath = [NSHomeDirectory() stringByAppendingFormat:@"/Documents/%@",videoWritePath];
+    
+    AVAssetExportSession *avAssetExport = [[AVAssetExportSession alloc] initWithAsset:avAsset presetName:AVAssetExportPresetMediumQuality];
+    avAssetExport.outputURL = [NSURL fileURLWithPath:outfilePath];
+    avAssetExport.outputFileType = AVFileTypeMPEG4;
+    
+    [avAssetExport exportAsynchronouslyWithCompletionHandler:^{
+        switch ([avAssetExport status]) {
+            case AVAssetExportSessionStatusCompleted:
+            {
+                NSURLSessionTask *sessionTask = nil;
+                sessionTask  =  [self.sessionManager POST:entity.urlString parameters:entity.parameters headers:entity.headers constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+                    
+                    NSURL *filePathURL2 = [NSURL URLWithString:[NSString stringWithFormat:@"file://%@", outfilePath]];
+                    // 获得沙盒中的视频内容
+                    [formData appendPartWithFileURL:filePathURL2 name:@"video" fileName:outfilePath mimeType:@"application/octet-stream" error:nil];
+                    
+                } progress:^(NSProgress * _Nonnull uploadProgress) {
+                    
+                    if (self.isOpenLog) {
+                        HHLog(@"上传进度---%lld, 总进度---%lld",uploadProgress.completedUnitCount,uploadProgress.totalUnitCount);
+                    }
+                    
+                    /*! 回到主线程刷新UI*/
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                       
+                        if (progressBlock) {
+                            progressBlock(uploadProgress.completedUnitCount, uploadProgress.totalUnitCount);
+                        }
+                        
+                    });
+                    
+                } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                    if (self.isOpenLog) {
+                        HHLog(@"上传视频成功 = %@", responseObject);
+                    }
+                    if (successBlock) {
+                        successBlock(responseObject,NO);
+                    }
+                    [self.tasks removeObject:sessionTask];
+                    
+                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                    if (self.isOpenLog) {
+                        HHLog(@"上传视频失败 = %@", error);
+                    }
+                    if (failureBlock) {
+                        failureBlock(error);
+                    }
+                    [self.tasks removeObject:sessionTask];
+                }];
+                
+                if (sessionTask) {
+                    [self.tasks addObject:sessionTask];
+                }
+            }
+                break;
+            default:
+                break;
+        }
+    }];
     
 }
 
@@ -475,11 +613,74 @@ static HHNetManager *shareNetManager = nil;
  @param failureBlock 上传失败的回调
  @return NSURLSessionTask
  */
-- (NSURLSessionTask *)uploadFileWithEntity:(HHDataEntity *)entity
-                             progressBlock:(HHUploadProgressBlock)progressBlock
+- (NSURLSessionTask *)uploadFileWithEntity:(HHFileDataEntity *)entity
+                             progressBlock:(nullable HHUploadProgressBlock)progressBlock
                               successBlock:(HHResponseSuccessBlock)successBlock
                               failureBlock:(HHResponseFailBlock)failureBlock {
     
+    if (!entity || entity.urlString == nil || ![entity isKindOfClass:[HHFileDataEntity class]]) {
+           return nil;
+    }
+    if (self.isOpenLog) {
+#ifdef DEBUG
+            if (self.isOpenLog) {
+                HHLog(@"\n******************** 请求参数 ***************************\n 请求头: %@\n\n 请求方式: %@\n\n 请求URL: %@\n\n 请求param: %@\n********************************************************",self.sessionManager.requestSerializer.HTTPRequestHeaders,@"POST",entity.urlString,entity.parameters);
+            }
+#endif
+    }
+    NSURLSessionTask *sessionTask = nil;
+    sessionTask = [self.sessionManager POST:entity.urlString parameters:entity.parameters headers:entity.headers constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+       
+        NSError *error = nil;
+        [formData appendPartWithFileURL:[NSURL URLWithString:entity.filePath] name:entity.fileName error:&error];
+        if (failureBlock && error) {
+            failureBlock(error);
+        }
+        
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+        if (self.isOpenLog) {
+            HHLog(@"上传进度---%lld, 总进度---%lld",uploadProgress.completedUnitCount,uploadProgress.totalUnitCount);
+        }
+        
+        /*! 回到主线程刷新UI*/
+        dispatch_async(dispatch_get_main_queue(), ^{
+           
+            if (progressBlock) {
+                progressBlock(uploadProgress.completedUnitCount, uploadProgress.totalUnitCount);
+            }
+            
+        });
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        if (self.isOpenLog) {
+            HHLog(@"上传文件成功 = %@", responseObject);
+        }
+        if (successBlock) {
+            successBlock(responseObject,NO);
+        }
+        
+        [self.tasks removeObject:sessionTask];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        if (self.isOpenLog) {
+            HHLog(@"上传文件失败 = %@", error);
+        }
+        if (failureBlock) {
+            failureBlock(error);
+        }
+        
+        [self.tasks removeObject:sessionTask];
+        
+    }];
+    
+    if (sessionTask) {
+        [self.tasks addObject:sessionTask];
+    }
+    
+    return sessionTask;
 }
 
 
@@ -492,11 +693,124 @@ static HHNetManager *shareNetManager = nil;
  @param failureBlock 下载失败的回调
  @return NSURLSessionTask
  */
-- (NSURLSessionTask *)downloadFileWithEntity:(HHDataEntity *)entity
-                               progressBlock:(HHDownloadProgressBlock)progressBlock
+- (NSURLSessionTask *)downloadFileWithEntity:(HHFileDataEntity *)entity
+                               progressBlock:(nullable HHDownloadProgressBlock)progressBlock
                                 successBlock:(HHResponseSuccessBlock)successBlock
                                 failureBlock:(HHResponseFailBlock)failureBlock {
     
+    if (!entity || entity.urlString == nil || ![entity isKindOfClass:[HHFileDataEntity class]]) {
+        return nil;
+    }
+    
+    NSURLRequest *downloadRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:entity.urlString]];
+    
+    if (self.isOpenLog) {
+#ifdef DEBUG
+        HHLog(@"\n******************** 请求参数 ***************************\n 请求头: %@\n\n 请求方式: %@\n\n 请求URL: %@\n\n 请求param: %@\n********************************************************",self.sessionManager.requestSerializer.HTTPRequestHeaders,@"download",entity.urlString,entity.parameters);
+#endif
+    }
+    
+    NSURLSessionTask *sessionTask = nil;
+    sessionTask = [self.sessionManager downloadTaskWithRequest:downloadRequest progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+        if (self.isOpenLog) {
+            HHLog(@"下载进度: %.2lld%%",100 * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount);
+        }
+        
+        /*! 回到主线程刷新UI*/
+        dispatch_async(dispatch_get_main_queue(), ^{
+           
+            if (progressBlock) {
+                progressBlock(downloadProgress.completedUnitCount, downloadProgress.totalUnitCount);
+            }
+            
+        });
+        
+    } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
+        
+        if (!entity.filePath) {
+            NSURL *downloadURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
+            if (self.isOpenLog) {
+                HHLog(@"默认路径--%@",downloadURL);
+            }
+            return [downloadURL URLByAppendingPathComponent:[response suggestedFilename]];
+            
+        }else {
+            return [NSURL fileURLWithPath:entity.filePath];
+        }
+       
+    } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
+        
+        [self.tasks removeObject:sessionTask];
+        
+        HHLog(@"下载文件成功");
+        
+        if (error == nil) {
+            
+            if (successBlock) {
+                
+                /*! 返回完整路径*/
+                successBlock([filePath path], NO);
+                
+            }
+            
+        }else {
+            
+            if (failureBlock) {
+                failureBlock(error);
+            }
+        }
+        
+    }];
+    
+    
+    /*! 开始启动任务 */
+    [sessionTask resume];
+    
+    if (sessionTask)
+    {
+        [self.tasks addObject:sessionTask];
+    }
+    return sessionTask;
+    
+}
+
+
+// MARK: - 内部方法
+// 上传图片
+- (void)uploadImageWithFormData:(id<AFMultipartFormData> _Nonnull)formData
+                   resizedImage:(UIImage *)resizedImage
+                      imageType:(NSString *)imageType
+                     imageScale:(CGFloat)imageScale
+                      fileNames:(NSArray <NSString *> *)fileNames
+                          index:(NSUInteger)index {
+    
+    /*! 此处压缩方法是jpeg格式是原图大小的0.7倍，要调整大小的话，就在这里调整就行了还是原图等比压缩 */
+    if (imageScale == 0)
+    {
+        imageScale = 0.7;
+    }
+    
+    NSData *imageData = UIImageJPEGRepresentation(resizedImage, imageScale ?: 1.f);
+    
+    /*! 拼接data */
+    if (imageData != nil) {
+        
+        NSString *imageFileName = nil;
+        if (fileNames && fileNames.count < index) {
+            
+            imageFileName = [NSString stringWithFormat:@"%@.%@",fileNames[index],imageType?:@"jpg"];
+            
+        }else {
+            
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            formatter.dateFormat       = @"yyyyMMddHHmmss";
+            NSString *str              = [formatter stringFromDate:[NSDate date]];
+            imageFileName = [NSString stringWithFormat:@"%@%ld.%@",str, index, imageType?:@"jpg"];
+        }
+        
+        [formData appendPartWithFileData:imageData name:[NSString stringWithFormat:@"picflie%ld", index] fileName:imageFileName mimeType:[NSString stringWithFormat:@"image/%@",imageType ?: @"jpg"]];
+    }
 }
 
 
@@ -602,10 +916,8 @@ static HHNetManager *shareNetManager = nil;
     [self.sessionManager.requestSerializer clearAuthorizationHeader];
 }
 
-/*!
- * 清空缓存： 此方法可能会阻塞调用线程 直到文件删除完成
- */
-+ (void)clearAllHttpCache:(void(^)(void))block {
+// MARK: - 异步清空缓存
++ (void)clearAllHttpCache:(nullable void(^)(void))block {
     
     [HHNetCache clearAllHttpCacheWithBlock:block];
 }

@@ -48,7 +48,9 @@ static YYCache *_dataCache;
     
     NSString *cacheKey = [self cacheKeyWithUrlString:urlString parameters:parameters];
     [_dataCache setObject:httpData forKey:cacheKey withBlock:^{
-        block();
+        if (block) {
+            block();
+        }
     }];
     
 }
@@ -80,7 +82,9 @@ static YYCache *_dataCache;
     [_dataCache objectForKey:cacheKey withBlock:^(NSString * _Nonnull key, id<NSCoding>  _Nonnull object) {
        
         dispatch_async(dispatch_get_main_queue(), ^{
-            block(object);
+            if (block) {
+                block(object);
+            }
         });
     }];
 }
@@ -98,7 +102,9 @@ static YYCache *_dataCache;
  */
 + (void)getAllHttpCacheSizetWithBlock:(void(^)(CGFloat totalCost))block {
     [_dataCache.diskCache totalCostWithBlock:^(NSInteger totalCost) {
-        block(totalCost/1024.0/1024.0);
+        if (block) {
+            block(totalCost/1024.0/1024.0);
+        }
     }];
 }
 
@@ -115,7 +121,9 @@ static YYCache *_dataCache;
 */
 + (void)clearAllHttpCacheWithBlock:(void(^)(void))block {
     [_dataCache.diskCache removeAllObjectsWithBlock:^{
-        block();
+        if (block) {
+            block();
+        }
     }];
 }
 

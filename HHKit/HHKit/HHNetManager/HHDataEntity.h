@@ -38,7 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface HHImageDataEntiy : HHDataEntity
+@interface HHImageDataEntity : HHDataEntity
 
 /** 上传的图片数组*/
 @property (nonatomic, copy) NSArray *imageArray;

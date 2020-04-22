@@ -16,6 +16,6 @@
 
 @end
 
-@implementation HHImageDataEntiy
+@implementation HHImageDataEntity
 
 @end

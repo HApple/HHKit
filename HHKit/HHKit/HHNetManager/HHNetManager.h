@@ -10,6 +10,8 @@
 #import <UIKit/UIKit.h>
 #import "HHKitMacro.h"
 #import "NSString+HHUtilities.h"
+#import "HHNetCache.h"
+#import "HHDataEntity.h"
 
 #define HHNetManagerShared [HHNetManager sharedHHNetManager]
 
@@ -127,7 +129,7 @@ typedef void(^HHDownloadProgressBlock)(int64_t bytesProgress, int64_t totalBytes
                                urlString:(NSString *)urlString
                               parameters:(id)parameters
                                  headers:(nullable NSDictionary <NSString *, NSString *> *)headers
-                           progressBlock:(HHDownloadProgressBlock)progressBlock
+                           progressBlock:(nullable HHDownloadProgressBlock)progressBlock
                             successBlock:(HHResponseSuccessBlock)successBlock
                             failureBlock:(HHResponseFailBlock)failureBlock;
 
@@ -141,7 +143,7 @@ typedef void(^HHDownloadProgressBlock)(int64_t bytesProgress, int64_t totalBytes
  @return NSURLSessionTask
  */
 - (NSURLSessionTask *)requestGetWithEnity:(HHDataEntity *)entity
-                            progerssBlock:(HHDownloadProgressBlock)progressBlock
+                            progerssBlock:(nullable HHDownloadProgressBlock)progressBlock
                              successBlock:(HHResponseSuccessBlock)successBlock
                              failureBlock:(HHResponseFailBlock)failureBlock;
 
@@ -156,7 +158,7 @@ typedef void(^HHDownloadProgressBlock)(int64_t bytesProgress, int64_t totalBytes
  @return NSURLSessionTask
  */
 - (NSURLSessionTask *)requestPostWithEnity:(HHDataEntity *)entity
-                            progerssBlock:(HHDownloadProgressBlock)progressBlock
+                            progerssBlock:(nullable HHDownloadProgressBlock)progressBlock
                              successBlock:(HHResponseSuccessBlock)successBlock
                              failureBlock:(HHResponseFailBlock)failureBlock;
 
@@ -171,7 +173,7 @@ typedef void(^HHDownloadProgressBlock)(int64_t bytesProgress, int64_t totalBytes
  @return NSURLSessionTask
  */
 - (NSURLSessionTask *)requestPutWithEnity:(HHDataEntity *)entity
-                            progerssBlock:(HHDownloadProgressBlock)progressBlock
+                            progerssBlock:(nullable HHDownloadProgressBlock)progressBlock
                              successBlock:(HHResponseSuccessBlock)successBlock
                              failureBlock:(HHResponseFailBlock)failureBlock;
 
@@ -185,7 +187,7 @@ typedef void(^HHDownloadProgressBlock)(int64_t bytesProgress, int64_t totalBytes
  @return NSURLSessionTask
  */
 - (NSURLSessionTask *)requestDeleteWithEnity:(HHDataEntity *)entity
-                            progerssBlock:(HHDownloadProgressBlock)progressBlock
+                            progerssBlock:(nullable HHDownloadProgressBlock)progressBlock
                              successBlock:(HHResponseSuccessBlock)successBlock
                              failureBlock:(HHResponseFailBlock)failureBlock;
 
@@ -199,8 +201,8 @@ typedef void(^HHDownloadProgressBlock)(int64_t bytesProgress, int64_t totalBytes
  @param failureBlock 上传失败的回调
  @return NSURLSessionTask
  */
-- (NSURLSessionTask *)uploadImageWithEntity:(HHDataEntity *)entity
-                              progressBlock:(HHUploadProgressBlock)progressBlock
+- (NSURLSessionTask *)uploadImageWithEntity:(HHImageDataEntity *)entity
+                              progressBlock:(nullable HHUploadProgressBlock)progressBlock
                                successBlock:(HHResponseSuccessBlock)successBlock
                                failureBlock:(HHResponseFailBlock)failureBlock;
 
@@ -213,8 +215,8 @@ typedef void(^HHDownloadProgressBlock)(int64_t bytesProgress, int64_t totalBytes
  @param successBlock 上传成功的回调
  @param failureBlock 上传失败的回调
  */
-- (void)uploadVideoWithEntity:(HHDataEntity *)entity
-                progressBlock:(HHUploadProgressBlock)progressBlock
+- (void)uploadVideoWithEntity:(HHFileDataEntity *)entity
+                progressBlock:(nullable HHUploadProgressBlock)progressBlock
                  successBlock:(HHResponseSuccessBlock)successBlock
                  failureBlock:(HHResponseFailBlock)failureBlock;
 
@@ -228,8 +230,8 @@ typedef void(^HHDownloadProgressBlock)(int64_t bytesProgress, int64_t totalBytes
  @param failureBlock 上传失败的回调
  @return NSURLSessionTask
  */
-- (NSURLSessionTask *)uploadFileWithEntity:(HHDataEntity *)entity
-                progressBlock:(HHUploadProgressBlock)progressBlock
+- (NSURLSessionTask *)uploadFileWithEntity:(HHFileDataEntity *)entity
+                progressBlock:(nullable HHUploadProgressBlock)progressBlock
                  successBlock:(HHResponseSuccessBlock)successBlock
                  failureBlock:(HHResponseFailBlock)failureBlock;
 
@@ -243,8 +245,8 @@ typedef void(^HHDownloadProgressBlock)(int64_t bytesProgress, int64_t totalBytes
  @param failureBlock 下载失败的回调
  @return NSURLSessionTask
  */
-- (NSURLSessionTask *)downloadFileWithEntity:(HHDataEntity *)entity
-                progressBlock:(HHDownloadProgressBlock)progressBlock
+- (NSURLSessionTask *)downloadFileWithEntity:(HHFileDataEntity *)entity
+                progressBlock:(nullable HHDownloadProgressBlock)progressBlock
                  successBlock:(HHResponseSuccessBlock)successBlock
                  failureBlock:(HHResponseFailBlock)failureBlock;
 
@@ -274,10 +276,9 @@ typedef void(^HHDownloadProgressBlock)(int64_t bytesProgress, int64_t totalBytes
  */
 - (void)cancelRequestWithURL:(NSString *)URL;
 
-/*!
- * 异步清空缓存
- */
-- (void)clearAllHttpCache:(void(^)(void))block;
+
+// MARK: - 异步清空缓存
++ (void)clearAllHttpCache:(nullable void(^)(void))block;
 
 @end
 

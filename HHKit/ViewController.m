@@ -8,12 +8,11 @@
 
 #import "ViewController.h"
 #import "HHKit.h"
-#import "HHVC_TextField.h"
 
 @interface ViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong)UITableView *tableView;
-@property (nonatomic, strong)NSArray *classNames;
-@property (nonatomic, strong)NSArray *titles;
+@property (nonatomic, strong)NSMutableArray *classNames;
+@property (nonatomic, strong)NSMutableArray *titles;
 @end
 
 @implementation ViewController
@@ -27,8 +26,14 @@
 
 // MARK: - Datas
 - (void)setupDatas {
-    self.titles = @[@"UITextField"];
-    self.classNames = @[@"HHVC_TextField"];
+    [self addTitle:@"UITextField" className:@"HHVC_TextField"];
+    [self addTitle:@"HHNetManager" className:@"HHVC_HHNet"];
+    
+}
+
+- (void)addTitle:(NSString *)title className:(NSString *)className {
+    [self.titles addObject:title];
+    [self.classNames addObject:className];
 }
 
 
@@ -76,5 +81,19 @@
         _tableView.tableFooterView = [UIView new];
     }
     return _tableView;
+}
+
+- (NSMutableArray *)titles {
+    if (!_titles) {
+        _titles = [NSMutableArray array];
+    }
+    return _titles;
+}
+
+- (NSMutableArray *)classNames {
+    if (!_classNames) {
+        _classNames = [NSMutableArray array];
+    }
+    return _classNames;
 }
 @end

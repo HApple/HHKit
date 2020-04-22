@@ -29,6 +29,10 @@
 		CD52A80C2436C589000C432E /* NSString+HHUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52A80B2436C589000C432E /* NSString+HHUtilities.m */; };
 		CD52A80F2436E77E000C432E /* UITextView+HHUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52A80E2436E77E000C432E /* UITextView+HHUtilities.m */; };
 		CD52A812243C185A000C432E /* HHNetCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52A811243C185A000C432E /* HHNetCache.m */; };
+		CDB0A3F1245041F500D2CEF8 /* UILabel+HHUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB0A3F0245041F500D2CEF8 /* UILabel+HHUtilities.m */; };
+		CDB0A3F42450420400D2CEF8 /* UIColor+HHUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB0A3F32450420400D2CEF8 /* UIColor+HHUtilities.m */; };
+		CDBC0CDF24501D2D008AA7BE /* HHVC_HHNet.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBC0CDE24501D2D008AA7BE /* HHVC_HHNet.m */; };
+		CDBC0CE124501F71008AA7BE /* HHVC_HHNet.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDBC0CE024501F71008AA7BE /* HHVC_HHNet.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +81,13 @@
 		CD52A80E2436E77E000C432E /* UITextView+HHUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextView+HHUtilities.m"; sourceTree = "<group>"; };
 		CD52A810243C185A000C432E /* HHNetCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHNetCache.h; sourceTree = "<group>"; };
 		CD52A811243C185A000C432E /* HHNetCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHNetCache.m; sourceTree = "<group>"; };
+		CDB0A3EF245041F500D2CEF8 /* UILabel+HHUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+HHUtilities.h"; sourceTree = "<group>"; };
+		CDB0A3F0245041F500D2CEF8 /* UILabel+HHUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+HHUtilities.m"; sourceTree = "<group>"; };
+		CDB0A3F22450420400D2CEF8 /* UIColor+HHUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+HHUtilities.h"; sourceTree = "<group>"; };
+		CDB0A3F32450420400D2CEF8 /* UIColor+HHUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HHUtilities.m"; sourceTree = "<group>"; };
+		CDBC0CDD24501D2D008AA7BE /* HHVC_HHNet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHVC_HHNet.h; sourceTree = "<group>"; };
+		CDBC0CDE24501D2D008AA7BE /* HHVC_HHNet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHVC_HHNet.m; sourceTree = "<group>"; };
+		CDBC0CE024501F71008AA7BE /* HHVC_HHNet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HHVC_HHNet.xib; sourceTree = "<group>"; };
 		E95D21ADBFBCB9CA2C1C7801 /* Pods-HHKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HHKit.release.xcconfig"; path = "Target Support Files/Pods-HHKit/Pods-HHKit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,6 +125,7 @@
 			children = (
 				6526371F2439AE2E008637D6 /* Base */,
 				6526371B2439AB81008637D6 /* UITextField */,
+				CDBC0CDC24501D0B008AA7BE /* HHNet */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -235,6 +247,10 @@
 				CD52A80E2436E77E000C432E /* UITextView+HHUtilities.m */,
 				65263712243889FF008637D6 /* UITextField+HHUtilities.h */,
 				65263713243889FF008637D6 /* UITextField+HHUtilities.m */,
+				CDB0A3EF245041F500D2CEF8 /* UILabel+HHUtilities.h */,
+				CDB0A3F0245041F500D2CEF8 /* UILabel+HHUtilities.m */,
+				CDB0A3F22450420400D2CEF8 /* UIColor+HHUtilities.h */,
+				CDB0A3F32450420400D2CEF8 /* UIColor+HHUtilities.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -246,6 +262,16 @@
 				CD52A8022435D9C2000C432E /* HHTool.m */,
 			);
 			path = Tool;
+			sourceTree = "<group>";
+		};
+		CDBC0CDC24501D0B008AA7BE /* HHNet */ = {
+			isa = PBXGroup;
+			children = (
+				CDBC0CDD24501D2D008AA7BE /* HHVC_HHNet.h */,
+				CDBC0CDE24501D2D008AA7BE /* HHVC_HHNet.m */,
+				CDBC0CE024501F71008AA7BE /* HHVC_HHNet.xib */,
+			);
+			path = HHNet;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,6 +335,7 @@
 			files = (
 				CD52A7FF2435826B000C432E /* Main.storyboard in Resources */,
 				CD52A7D024342A0E000C432E /* LaunchScreen.storyboard in Resources */,
+				CDBC0CE124501F71008AA7BE /* HHVC_HHNet.xib in Resources */,
 				CD52A7CD24342A0E000C432E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,6 +397,8 @@
 				CD52A7D324342A0E000C432E /* main.m in Sources */,
 				CD52A80F2436E77E000C432E /* UITextView+HHUtilities.m in Sources */,
 				65263714243889FF008637D6 /* UITextField+HHUtilities.m in Sources */,
+				CDB0A3F42450420400D2CEF8 /* UIColor+HHUtilities.m in Sources */,
+				CDBC0CDF24501D2D008AA7BE /* HHVC_HHNet.m in Sources */,
 				CD52A7E224342F58000C432E /* UIImage+HHUtilities.m in Sources */,
 				6526371E2439ABBD008637D6 /* HHVC_TextField.m in Sources */,
 				CD52A7FB24349814000C432E /* UIDevice+HHUtilities.m in Sources */,
@@ -378,6 +407,7 @@
 				652637192438D7DA008637D6 /* HHPhotoGroupView.m in Sources */,
 				6526372A243AA5D9008637D6 /* HHNetManager.m in Sources */,
 				CD52A7C524342A0D000C432E /* SceneDelegate.m in Sources */,
+				CDB0A3F1245041F500D2CEF8 /* UILabel+HHUtilities.m in Sources */,
 				CD52A8032435D9C2000C432E /* HHTool.m in Sources */,
 				CD52A8092436C56C000C432E /* UIViewController+HHUtilities.m in Sources */,
 			);

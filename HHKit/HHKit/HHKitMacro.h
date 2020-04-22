@@ -11,7 +11,7 @@
 
 //MARK: - UI Define
 /// IPHONE_X 判断
-#define  IS_IPHONE_X  [UIDevice isIphoneXSeries]
+#define  IS_IPHONE_XSeries  [UIDevice isIphoneXSeries]
 /// 状态栏 导航栏 底部高
 #define  kSafeAreaInsetsTop       [UIDevice hh_safeAreaInsetsTop]
 #define  kSafeAreaInsetsBootom    [UIDevice hh_safeAreaInsetsBottom]
@@ -24,7 +24,7 @@
 
 #ifdef DEBUG
 #define HHLog(fmt, ...)   \
-NSLog((@"[filename:%s]\n" "[functionname:%s]\n" "[行号:%d] \n" fmt), __FILE__, __FUNCTION__, __LINE__, ##__VA_ARGS__);
+NSLog((@"%s\n" fmt),__FUNCTION__, ##__VA_ARGS__);
 #else
 #define HHLog(...);
 #endif
