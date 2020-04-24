@@ -35,6 +35,7 @@ typedef NS_OPTIONS(NSInteger, HHCornerPosition) {
 
 
 //MARK: --  UIView XIB Border
+IB_DESIGNABLE
 @interface UIView (XIB)
 
 @property (nonatomic, strong)IBInspectable UIColor *borderColor;
