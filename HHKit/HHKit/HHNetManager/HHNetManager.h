@@ -8,10 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "HHKitMacro.h"
+#import "NSString+HHUtilities.h"
+#import "HHNetCache.h"
+#import "HHDataEntity.h"
+
+#define HHNetManagerShared [HHNetManager sharedHHNetManager]
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NS_ENUM(NSUInteger, HHNetwrokStatus) {
+typedef NS_ENUM(NSUInteger, HHNetworkStatus) {
     /*! 未知网络*/
     HHNetworkStatusUnknown              =  0,
     /*! 没有网络*/
@@ -50,10 +56,10 @@ typedef NS_ENUM(NSUInteger, HHResponseSerializer) {
 
 
 /*! 实时监测网络状态的 block*/
-typedef void(^HHNetworkStatusBlock)(HHNetwrokStatus status);
+typedef void(^HHNetworkStatusBlock)(HHNetworkStatus status);
 
 /*! 定义请求成功的 block*/
-typedef void(^HHResponseSuccessBlock)(id response);
+typedef void(^HHResponseSuccessBlock)(id response, BOOL isCache);
 /*! 定义请求失败的 block*/
 typedef void(^HHResponseFailBlock)(NSError *error);
 
@@ -105,17 +111,175 @@ typedef void(^HHDownloadProgressBlock)(int64_t bytesProgress, int64_t totalBytes
 + (instancetype)sharedHHNetManager;
 
 //MARK: - 网络请求的类方法  GET / POST / PUT / DELETE
+/*!
+ *  网络请求的实例方法
+ *
+ *  @param type         get / post / put / delete
+ *  @param isNeedCache  是否需要缓存，只有 get / post 请求有缓存配置
+ *  @param urlString    请求的地址
+ *  @param parameters    请求的参数
+ *  @param headers       请求头 在默认请求头的基础上再增加自定义的
+ *  @param progressBlock 进度
+ *  @param successBlock 请求成功的回调
+ *  @param failureBlock 请求失败的回调
+ *  x
+ */
+- (NSURLSessionTask *)requestWithType:(HHRequstType)type
+                             isNeedCache:(BOOL)isNeedCache
+                               urlString:(NSString *)urlString
+                              parameters:(id)parameters
+                                 headers:(nullable NSDictionary <NSString *, NSString *> *)headers
+                           progressBlock:(nullable HHDownloadProgressBlock)progressBlock
+                            successBlock:(HHResponseSuccessBlock)successBlock
+                            failureBlock:(HHResponseFailBlock)failureBlock;
 
 /**
  网络请求的实例方法 GET
  
- @param enity 请求信息载体
+ @param entity 请求信息载体
+ @param progressBlock 进度回调
  @param successBlock 请求成功的回调
  @param failureBlock 请求失败的回调
- @param progressBlock 进度回调
- @return
+ @return NSURLSessionTask
  */
-//+ (NSURLSessionTask *)request
+- (NSURLSessionTask *)requestGetWithEnity:(HHDataEntity *)entity
+                            progerssBlock:(nullable HHDownloadProgressBlock)progressBlock
+                             successBlock:(HHResponseSuccessBlock)successBlock
+                             failureBlock:(HHResponseFailBlock)failureBlock;
+
+
+/**
+ 网络请求的实例方法 POST
+ 
+ @param entity 请求信息载体
+ @param progressBlock 进度回调
+ @param successBlock 请求成功的回调
+ @param failureBlock 请求失败的回调
+ @return NSURLSessionTask
+ */
+- (NSURLSessionTask *)requestPostWithEnity:(HHDataEntity *)entity
+                            progerssBlock:(nullable HHDownloadProgressBlock)progressBlock
+                             successBlock:(HHResponseSuccessBlock)successBlock
+                             failureBlock:(HHResponseFailBlock)failureBlock;
+
+
+/**
+ 网络请求的实例方法 PUT
+ 
+ @param entity 请求信息载体
+ @param progressBlock 进度回调
+ @param successBlock 请求成功的回调
+ @param failureBlock 请求失败的回调
+ @return NSURLSessionTask
+ */
+- (NSURLSessionTask *)requestPutWithEnity:(HHDataEntity *)entity
+                            progerssBlock:(nullable HHDownloadProgressBlock)progressBlock
+                             successBlock:(HHResponseSuccessBlock)successBlock
+                             failureBlock:(HHResponseFailBlock)failureBlock;
+
+/**
+ 网络请求的实例方法 DELETE
+ 
+ @param entity 请求信息载体
+ @param progressBlock 进度回调
+ @param successBlock 请求成功的回调
+ @param failureBlock 请求失败的回调
+ @return NSURLSessionTask
+ */
+- (NSURLSessionTask *)requestDeleteWithEnity:(HHDataEntity *)entity
+                            progerssBlock:(nullable HHDownloadProgressBlock)progressBlock
+                             successBlock:(HHResponseSuccessBlock)successBlock
+                             failureBlock:(HHResponseFailBlock)failureBlock;
+
+
+/**
+ 上传图片（多图）
+ 
+ @param entity 请求信息载体
+ @param progressBlock 上传进度
+ @param successBlock 上传成功的回调
+ @param failureBlock 上传失败的回调
+ @return NSURLSessionTask
+ */
+- (NSURLSessionTask *)uploadImageWithEntity:(HHImageDataEntity *)entity
+                              progressBlock:(nullable HHUploadProgressBlock)progressBlock
+                               successBlock:(HHResponseSuccessBlock)successBlock
+                               failureBlock:(HHResponseFailBlock)failureBlock;
+
+
+/**
+ 视频上传
+ 
+ @param entity 请求信息载体
+ @param progressBlock 上传进度
+ @param successBlock 上传成功的回调
+ @param failureBlock 上传失败的回调
+ */
+- (void)uploadVideoWithEntity:(HHFileDataEntity *)entity
+                progressBlock:(nullable HHUploadProgressBlock)progressBlock
+                 successBlock:(HHResponseSuccessBlock)successBlock
+                 failureBlock:(HHResponseFailBlock)failureBlock;
+
+
+/**
+ 文件上传
+ 
+ @param entity 请求信息载体
+ @param progressBlock 上传进度
+ @param successBlock 上传成功的回调
+ @param failureBlock 上传失败的回调
+ @return NSURLSessionTask
+ */
+- (NSURLSessionTask *)uploadFileWithEntity:(HHFileDataEntity *)entity
+                progressBlock:(nullable HHUploadProgressBlock)progressBlock
+                 successBlock:(HHResponseSuccessBlock)successBlock
+                 failureBlock:(HHResponseFailBlock)failureBlock;
+
+
+/**
+ 文件下载
+ 
+ @param entity 请求信息载体
+ @param progressBlock 下载进度
+ @param successBlock 下载成功的回调
+ @param failureBlock 下载失败的回调
+ @return NSURLSessionTask
+ */
+- (NSURLSessionTask *)downloadFileWithEntity:(HHFileDataEntity *)entity
+                progressBlock:(nullable HHDownloadProgressBlock)progressBlock
+                 successBlock:(HHResponseSuccessBlock)successBlock
+                 failureBlock:(HHResponseFailBlock)failureBlock;
+
+
+
+// MARK: - 网络状态检测
+/*!
+ *  开启实时网络状态监测， 通过Block回调实时获取（此方法可多次调用）
+ */
++ (void)startNetWorkMonitoringWithBlock:(HHNetworkStatusBlock)networkStatus;
+
+
+// MARK: - 自定义请求头
+- (void)setValue:(NSString *)value forHTTPHeaderKey:(NSString *)HTTPHeaderKey;
+
+// MARK: - 删除所有请求头
+- (void)clearAuthorizationHeader;
+
+// MARK: - 取消 HTTP 请求
+/*！
+ * 取消所有 HTTP 请求
+ */
+- (void)cancelAllRequest;
+
+/*!
+ * 取消指定 URL的 HTTP 请求
+ */
+- (void)cancelRequestWithURL:(NSString *)URL;
+
+
+// MARK: - 异步清空缓存
++ (void)clearAllHttpCache:(nullable void(^)(void))block;
+
 @end
 
 NS_ASSUME_NONNULL_END

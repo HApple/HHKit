@@ -8,7 +8,6 @@
 
 #import "ViewController.h"
 #import "HHKit.h"
-#import "HHVC_TextField.h"
 
 @interface ViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong)UITableView *tableView;
@@ -29,13 +28,13 @@
 - (void)setupDatas {
     [self addTitle:@"UITextField" withClassName:@"HHVC_TextField"];
     [self addTitle:@"WKWebView" withClassName:@"HHVC_WKWebView"];
+    [self addTitle:@"HHNetManager" withClassName:@"HHVC_HHNet"];
 }
 
 - (void)addTitle:(NSString *)title withClassName:(NSString *)className {
     [self.titles addObject:title];
     [self.classNames addObject:className];
 }
-
 
 // MARK: - UI
 - (void)setupUI {

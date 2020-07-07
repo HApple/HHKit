@@ -13,51 +13,15 @@
 
 @end
 
-
-
 @implementation UITextView (HHPlaceholder)
 
-//MARK:  Swizzle Dealloc
-+ (void)load {
-    method_exchangeImplementations(class_getInstanceMethod(self.class, NSSelectorFromString(@"dealloc")),
-                                   class_getInstanceMethod(self.class, @selector(swizzledDealloc)));
-}
-
-- (void)swizzledDealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    UILabel *label = objc_getAssociatedObject(self, @selector(placeholderLabel));
-    if (label) {
-        for (NSString *key in self.class.observingKeys) {
-            @try {
-                [self removeObserver:self forKeyPath:key];
-            }
-            @catch (NSException *exception) {
-                // Do nothing
-            }
-        }
-    }
-    [self swizzledDealloc];
-}
-
-//MARK:  `observingKeys`
-
-+ (NSArray *)observingKeys {
-    return @[@"attributedText",
-             @"bounds",
-             @"font",
-             @"frame",
-             @"text",
-             @"textAlignment",
-             @"textContainerInset"];
-}
-
-
 //MARK:  Placeholder
-- (UILabel *)placeholderLabel {
-    UILabel *label = objc_getAssociatedObject(self, @selector(placeholderLabel));
+- (UITextView *)placeholderLabel {
+    UITextView *label = objc_getAssociatedObject(self, @selector(placeholderLabel));
     if (!label) {
-        label = [[UILabel alloc] init];
-        label.numberOfLines = 0;
+        label = [[UITextView alloc] init];
+        label.editable = NO;
+        label.selectable = NO;
         objc_setAssociatedObject(self, @selector(placeholderLabel), label, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         
         [self hh_updatePlaceholderLabel];
@@ -66,10 +30,6 @@
                                                  selector:@selector(hh_updatePlaceholderLabel)
                                                      name:UITextViewTextDidChangeNotification
                                                    object:self];
-        
-        for (NSString *key in self.class.observingKeys) {
-            [self addObserver:self forKeyPath:key options:NSKeyValueObservingOptionNew context:nil];
-        }
     }
     return label;
 }
@@ -106,17 +66,6 @@
     return self.placeholderLabel.attributedText;
 }
 
-
-//MARK:  KVO
-
-- (void)observeValueForKeyPath:(NSString *)keyPath
-                      ofObject:(id)object
-                        change:(NSDictionary *)change
-                       context:(void *)context {
-    [self hh_updatePlaceholderLabel];
-}
-
-
 //MARK:  Update
 
 - (void)hh_updatePlaceholderLabel {
@@ -127,17 +76,8 @@
          self.placeholderLabel.hidden = NO;
          [self insertSubview:self.placeholderLabel atIndex:0];
      }
-
-    self.placeholderLabel.textAlignment = self.textAlignment;
-
-    CGFloat lineFragmentPadding = self.textContainer.lineFragmentPadding;
-    UIEdgeInsets textContainerInset = self.textContainerInset;
-    
-    CGFloat x = lineFragmentPadding + textContainerInset.left;
-    CGFloat y = textContainerInset.top;
-    CGFloat width = CGRectGetWidth(self.bounds) - x - lineFragmentPadding - textContainerInset.right;
-    CGFloat height = [self.placeholderLabel sizeThatFits:CGSizeMake(width, 0)].height;
-    self.placeholderLabel.frame = CGRectMake(x, y, width, height);
+    self.placeholderLabel.frame = self.bounds;
 }
 @end
+
 
