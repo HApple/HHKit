@@ -1,5 +1,5 @@
 //
-//  UIDevice+HHUtilities.h
+//  UIScreen+HHUtilities.h
 //  HHKit
 //
 //  Created by MeiZan_iMac2019 on 2020/4/1.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UIDevice (HHUtilities)
+@interface UIScreen (HHUtilities)
 
 + (BOOL)hh_isIphoneXSeries;
 + (UIWindow *)hh_keyWindow;

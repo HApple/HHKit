@@ -115,7 +115,7 @@ typedef void(^HHDownloadProgressBlock)(int64_t bytesProgress, int64_t totalBytes
  @param progressBlock 进度回调
  @return
  */
-+ (NSURLSessionTask *)request
+//+ (NSURLSessionTask *)request
 @end
 
 NS_ASSUME_NONNULL_END

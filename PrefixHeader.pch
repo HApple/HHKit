@@ -5,6 +5,10 @@
 //  Created by Jn.Huang on 2020/4/5.
 //  Copyright © 2020 hjn. All rights reserved.
 //
+// !!!!!!!Important 仅支持iOS11.0以上版本
+//
+
+
 
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch

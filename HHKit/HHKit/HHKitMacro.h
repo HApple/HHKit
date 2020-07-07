@@ -13,11 +13,11 @@
 /// IPHONE_X 判断
 #define  IS_IPHONE_X  [UIDevice isIphoneXSeries]
 /// 状态栏 导航栏 底部高
-#define  kSafeAreaInsetsTop       [UIDevice hh_safeAreaInsetsTop]
-#define  kSafeAreaInsetsBootom    [UIDevice hh_safeAreaInsetsBottom]
-#define  kStatusBarHeight         [UIDevice hh_statusBarHeight]
-#define  kNavBarHeight            [UIDevice hh_navBarHeight]
-#define  kTabBarHeight            [UIDevice hh_tabbarHeight]
+#define  kSafeAreaInsetsTop       [UIScreen hh_safeAreaInsetsTop]
+#define  kSafeAreaInsetsBootom    [UIScreen hh_safeAreaInsetsBottom]
+#define  kStatusBarHeight         [UIScreen hh_statusBarHeight]
+#define  kNavBarHeight            [UIScreen hh_navBarHeight]
+#define  kTabBarHeight            [UIScreen hh_tabbarHeight]
 /// 屏幕适配，以IPhone6为基准，375是宽，667是高
 #define kFitScreen(x) (x * (kScreenWidth / 375.0))
 #define kFontSize(x)  [UIFont systemFontOfSize:kFitScreen(x)]
@@ -29,6 +29,40 @@ NSLog((@"[filename:%s]\n" "[functionname:%s]\n" "[行号:%d] \n" fmt), __FILE__,
 #define HHLog(...);
 #endif
 
+#define HH_WeakSelf     @HH_Weakify(self);
+#define HH_StrongSelf   @HH_Strongify(self);
+
+#ifndef HH_Weakify
+    #if DEBUG
+        #if __has_feature(objc_arc)
+        #define HH_Weakify(object) autoreleasepool{} __weak __typeof__(object) weak##_##object = object;
+        #else
+        #define HH_Weakify(object) autoreleasepool{} __block __typeof__(object) block##_##object = object;
+        #endif
+    #else
+        #if __has_feature(objc_arc)
+        #define HH_Weakify(object) try{} @finally{} {} __weak __typeof__(object) weak##_##object = object;
+        #else
+        #define HH_Weakify(object) try{} @finally{} {} __block __typeof__(object) block##_##object = object;
+        #endif
+    #endif
+#endif
+
+#ifndef HH_Strongify
+    #if DEBUG
+        #if __has_feature(objc_arc)
+        #define HH_Strongify(object) autoreleasepool{} __typeof__(object) object = weak##_##object;
+        #else
+        #define HH_Strongify(object) autoreleasepool{} __typeof__(object) object = block##_##object;
+        #endif
+    #else
+        #if __has_feature(objc_arc)
+        #define HH_Strongify(object) try{} @finally{} __typeof__(object) object = weak##_##object;
+        #else
+        #define HH_Strongify(object) try{} @finally{} __typeof__(object) object = block##_##object;
+        #endif
+    #endif
+#endif
 
 // MARK:- YYKit
 /// YYKit 提供了很多便捷用法 无需自己再累赘写了

@@ -19,9 +19,10 @@
 #import "HHTool.h"
 
 //Util
+#import "NSObject+HHKit.h"
 #import "NSString+HHUtilities.h"
 #import "UIImage+HHUtilities.h"
-#import "UIDevice+HHUtilities.h"
+#import "UIScreen+HHUtilities.h"
 #import "UIView+HHUtilities.h"
 #import "UIViewController+HHUtilities.h"
 #import "UITextView+HHUtilities.h"

@@ -1,14 +1,14 @@
 //
-//  UIDevice+HHUtilities.m
+//  UIScreen+HHUtilities.m
 //  HHKit
 //
 //  Created by MeiZan_iMac2019 on 2020/4/1.
 //  Copyright © 2020 hjn. All rights reserved.
 //
 
-#import "UIDevice+HHUtilities.h"
+#import "UIScreen+HHUtilities.h"
 
-@implementation UIDevice (HHUtilities)
+@implementation UIScreen (HHUtilities)
 
 + (BOOL)hh_isIphoneXSeries {
     UIWindow *window = [self hh_keyWindow];

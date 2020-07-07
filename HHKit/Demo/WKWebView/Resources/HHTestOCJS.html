@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html"; charset="utf-8" />
+	<title>HApple</title>
+	<link rel="stylesheet prefetch" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<style type="text/css">
+	*{
+		font-size: 40px;
+	}
+	.text-center {
+		margin: 0;
+		margin-top: 20px;
+		margin-left: 20px;
+		margin-right: 20px;
+		text-align: center;
+	}
+	.cls_btn {
+		background-color: #ccff66;
+		border: solid 1px #cc00ff;
+		border-radius: 20px;
+		font-size: 1em;
+		color: red
+	}
+	p {
+		margin: 0;
+		margin-top: 20px;
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+</style>
+<body>
+	<br/>
+	
+	<div>
+		<h1 class="text-center">Welcome To HApple</h1>
+		<h2 class="text-center"><em>Stay hungry, Stay foolish</em></h2>
+	</div>
+	<br/>
+	
+
+	<div id="id_alert"></div>
+	<div>
+		<button class="cls_btn text-center" type="button" onclick="HH_JS_OC_Alert()">
+			1. JS调用OC 【调用OC alert,展示 JS 内容】
+		</button>
+	</div>
+	<br/>
+
+	
+	<div id="id_share"></div>
+	<div>
+		<button class="cls_btn text-center" type="button" onclick="HH_JS_OC_ShareClike()">
+			2. JS 调用 OC， JS 分享链接 【OC 拦截 JS URL】 			
+		</button>
+	</div>
+	<br/>
+
+
+	<div id="id_jump"></div>
+	<div>
+		<button class="cls_btn text-center" type="button" onclick="HH_JS_OC_JumpVC()">
+			3. JS 调用 OC [OC跳转页面]
+		</button>
+	</div>
+	<br/>
+
+
+	<p id="id_demo">点击下面按钮，获得您的地理坐标</p>
+	<div id="id_location"></div>
+	<div>
+		<button class="cls_btn text-center" type="button" onclick="HH_JS_OC_getLocation()">
+			4. JS调用OC, JS获取当前定位 【OC 拦截 JS URL】
+		</button>
+	</div>
+    <br/>
+
+
+    <div id="id_insert"></div>
+	<div>
+		<button class="cls_btn text-center" type="button" onclick="HH_OC_JS__JS_OC_SendMsg()">
+			5. OC 调用 JS 【返回 JS 中的数据给 OC 接收处理】
+		</button>
+	</div>
+	<br/>
+</body> 
+<script type="text/javascript" language="javascript">
+	function clear() {
+		document.getElementById('id_alert').innerHTML = ''
+		document.getElementById('id_insert').innerHTML = ''
+		document.getElementById('id_jump').innerHTML = ''
+		document.getElementById('id_share').innerHTML = ''
+		document.getElementById('id_location').innerHTML = ''
+	}
+
+	// OC调用JS的方法列表
+	function hh_insert(num,msg) {
+		document.getElementById('id_insert').innerHTML = '这是我的手机号:' + num + ',' + msg + '1'
+	}
+
+	// JS响应方法列表
+	function HH_JS_OC_Alert() {
+		window.webkit.messageHandlers.HH_JS_OC_Alert.postMessage(null)
+	}
+
+	function HH_JS_OC_JumpVC() {
+		window.webkit.messageHandlers.HH_JS_OC_JumpVC.postMessage(null)
+	}
+
+	function HH_OC_JS__JS_OC_SendMsg() {
+		window.webkit.messageHandlers.HH_OC_JS__JS_OC_SendMsg.postMessage(['13800138000','Stay hungry，Stay foolish']);
+	}
+
+	function loadHHURL(url) {
+		var iFrame;
+		iFrame = document.createElement("iframe");
+		iFrame.setAttribute("src",url);
+		iFrame.setAttribute("style","display:none;");
+		iFrame.setAttribute("height","0px");
+		iFrame.setAttribute("width","0px");
+		iFrame.setAttribute("frameborder","0");
+		document.body.appendChild(iFrame);
+		// 发起请求后这个 iFrame 就没用了，所以把它从 dom 上移除掉
+		iFrame.parentNode.removeChild(iFrame);
+		iFrame = null;
+	}
+
+
+	// 注意： URL scheme 必须全部小写英文字母，要不然无法识别，例如： HHShareFunction 会自动转换成小写 hhsharefunction,
+	// 所以开始声明的时候，就直接把它设定成小写字母，还有，不能带下划线等特殊符号
+
+	function HH_JS_OC_ShareClike() {
+		loadHHURL("hhsharefunction://shareClick?title=Sport&content=love&url=www.baidu.com");
+	}
+
+    // 用 JS 获取当前的经纬度， 并添加一行显示出来
+    var x = document.getElementById('id_location')
+	function HH_JS_OC_getLocation(){
+		if(navigator.geolocation) {
+			navigator.geolocation.watchPosition(showPosition, locationError);
+		}
+	    else {
+			document.getElementById('id_location').innerHTML = "Your browser does not support Geolocaiton!";
+        }
+	}
+
+	function showPosition(position) {
+		loadHHURL("hhsharefunction://getLocation?latitude=" + position.coords.latitude + "&longitude=" + position.coords.longitude);
+		document.getElementById('id_location').innerHTML="Latitude: " + position.coords.latitude + "<br/> Longitude: " + position.coords.longitude;
+	}
+
+
+	function locationError(error) {
+		switch(error.code) {
+			case error.TIMEOUT:
+				showError("A timeout occured! Please try again!");
+				break;
+			case error.POSITION_UNAVAILABLE:
+				showError("We can\'t detect your location. Sorry!");
+				break;
+			case error.PERMISSION_DENIED:
+				showError("Please allow geolocation access for this to work.");
+				break;
+			case error.UNKNOWN_ERROR:
+				showError("An unknown error occured!");
+				break;
+		}
+        loadHHURL("hhsharefunction://getLocation?latitude=" + "获取失败" + "&longitude=" + "获取失败");
+        document.getElementById('id_location').innerHTML="Latitude: " + "" + "<br/> Longitude: " + position.coords.longitude;
+	}
+</script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html"; charset="utf-8">
+	<title></title>
+	<style type="text/css">
+        button{
+			height: 50px;
+			background: #cfc;
+			margin: 10px;
+		}
+	</style>
+	<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+</head>
+<body>
+	<div id="btn-box">
+		<button class="btn1" id="btn2" onclick="addButton()">点击自增按钮！</button>
+	</div>
+</body>
+<script type="text/javascript">
+	function addButton() {
+		$('#btn-box').each(function(){
+			var index = $('body').find('button').index()+1;
+			var btn = '<button>按钮' + index + '</button>';
+			$('#btn-box').append(btn);
+		});
+	}
+</script>
+</html>

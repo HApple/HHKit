@@ -7,12 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6525DF8F24A8426200664FC2 /* HHWeakScriptMessageDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6525DF8E24A8426200664FC2 /* HHWeakScriptMessageDelegate.m */; };
+		6525DF9224A8691700664FC2 /* WKWebView+HHJavaScriptAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 6525DF9124A8691700664FC2 /* WKWebView+HHJavaScriptAlert.m */; };
+		6525DF9524A8727600664FC2 /* WKWebView+HHKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 6525DF9424A8727600664FC2 /* WKWebView+HHKit.m */; };
+		6525DF9824AAB65B00664FC2 /* NSObject+HHKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 6525DF9724AAB65B00664FC2 /* NSObject+HHKit.m */; };
+		6525DF9B24AC16A100664FC2 /* WKWebView+HHPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 6525DF9A24AC16A100664FC2 /* WKWebView+HHPost.m */; };
+		6525DF9E24AC24B000664FC2 /* HHWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6525DF9D24AC24B000664FC2 /* HHWebViewController.m */; };
+		6525DFA024AC24DC00664FC2 /* HHKit_WebView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6525DF9F24AC24DC00664FC2 /* HHKit_WebView.bundle */; };
+		6525DFAB24B14C7300664FC2 /* HH_WebViewJavascriptBridgeBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 6525DFA324B14C7300664FC2 /* HH_WebViewJavascriptBridgeBase.m */; };
+		6525DFAC24B14C7400664FC2 /* HH_WKWebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 6525DFA424B14C7300664FC2 /* HH_WKWebViewJavascriptBridge.m */; };
+		6525DFAE24B14C7400664FC2 /* HH_WebViewJavascriptBridge_JS.m in Sources */ = {isa = PBXBuildFile; fileRef = 6525DFA824B14C7300664FC2 /* HH_WebViewJavascriptBridge_JS.m */; };
+		6525DFB524B1541300664FC2 /* HHVC_WKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6525DFB424B1541300664FC2 /* HHVC_WKWebView.m */; };
 		65263714243889FF008637D6 /* UITextField+HHUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 65263713243889FF008637D6 /* UITextField+HHUtilities.m */; };
 		652637192438D7DA008637D6 /* HHPhotoGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 652637182438D7DA008637D6 /* HHPhotoGroupView.m */; };
 		6526371E2439ABBD008637D6 /* HHVC_TextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6526371D2439ABBD008637D6 /* HHVC_TextField.m */; };
 		652637222439AE3D008637D6 /* HHBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 652637212439AE3D008637D6 /* HHBaseViewController.m */; };
 		65263727243AA15C008637D6 /* HHDataEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 65263726243AA15C008637D6 /* HHDataEntity.m */; };
 		6526372A243AA5D9008637D6 /* HHNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 65263729243AA5D9008637D6 /* HHNetManager.m */; };
+		65DD80CA24B1AA7400BC9CBB /* jquery-1.7.2.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 65DD80C924B1AA7400BC9CBB /* jquery-1.7.2.min.js */; };
+		65DD80CC24B1ACC100BC9CBB /* HHTestWebLoadRequest.html in Resources */ = {isa = PBXBuildFile; fileRef = 65DD80CB24B1ACC100BC9CBB /* HHTestWebLoadRequest.html */; };
+		65DD80CF24B1B47F00BC9CBB /* HHVC_WK_OC_JS.m in Sources */ = {isa = PBXBuildFile; fileRef = 65DD80CE24B1B47F00BC9CBB /* HHVC_WK_OC_JS.m */; };
+		65DD80D224B1B4B000BC9CBB /* HHVC_WK_AutoHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 65DD80D124B1B4B000BC9CBB /* HHVC_WK_AutoHeight.m */; };
+		65DD80D624B1B50500BC9CBB /* WKWebViewAutoHeightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65DD80D524B1B50500BC9CBB /* WKWebViewAutoHeightCell.m */; };
+		65DD80DA24B1B6F300BC9CBB /* WebViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 65DD80D924B1B6F300BC9CBB /* WebViewModel.m */; };
+		65DD80DE24B2C77500BC9CBB /* HHTestOCJS.html in Resources */ = {isa = PBXBuildFile; fileRef = 65DD80DD24B2C77500BC9CBB /* HHTestOCJS.html */; };
 		B3C5A80F1DA09E3160CC8019 /* Pods_HHKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71ED7596B9DE6DE0597251D4 /* Pods_HHKit.framework */; };
 		CD52A7C224342A0D000C432E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52A7C124342A0D000C432E /* AppDelegate.m */; };
 		CD52A7C524342A0D000C432E /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52A7C424342A0D000C432E /* SceneDelegate.m */; };
@@ -21,7 +39,7 @@
 		CD52A7D024342A0E000C432E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD52A7CE24342A0E000C432E /* LaunchScreen.storyboard */; };
 		CD52A7D324342A0E000C432E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52A7D224342A0E000C432E /* main.m */; };
 		CD52A7E224342F58000C432E /* UIImage+HHUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52A7E124342F58000C432E /* UIImage+HHUtilities.m */; };
-		CD52A7FB24349814000C432E /* UIDevice+HHUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52A7FA24349814000C432E /* UIDevice+HHUtilities.m */; };
+		CD52A7FB24349814000C432E /* UIScreen+HHUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52A7FA24349814000C432E /* UIScreen+HHUtilities.m */; };
 		CD52A7FF2435826B000C432E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD52A7FE2435826B000C432E /* Main.storyboard */; };
 		CD52A8032435D9C2000C432E /* HHTool.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52A8022435D9C2000C432E /* HHTool.m */; };
 		CD52A8062436C36D000C432E /* UIView+HHUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = CD52A8052436C36D000C432E /* UIView+HHUtilities.m */; };
@@ -32,6 +50,28 @@
 
 /* Begin PBXFileReference section */
 		1BC49FA3366BFA82EDE1046F /* Pods-HHKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HHKit.debug.xcconfig"; path = "Target Support Files/Pods-HHKit/Pods-HHKit.debug.xcconfig"; sourceTree = "<group>"; };
+		6525DF8D24A8426200664FC2 /* HHWeakScriptMessageDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHWeakScriptMessageDelegate.h; sourceTree = "<group>"; };
+		6525DF8E24A8426200664FC2 /* HHWeakScriptMessageDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHWeakScriptMessageDelegate.m; sourceTree = "<group>"; };
+		6525DF9024A8691700664FC2 /* WKWebView+HHJavaScriptAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WKWebView+HHJavaScriptAlert.h"; sourceTree = "<group>"; };
+		6525DF9124A8691700664FC2 /* WKWebView+HHJavaScriptAlert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "WKWebView+HHJavaScriptAlert.m"; sourceTree = "<group>"; };
+		6525DF9324A8727600664FC2 /* WKWebView+HHKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WKWebView+HHKit.h"; sourceTree = "<group>"; };
+		6525DF9424A8727600664FC2 /* WKWebView+HHKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "WKWebView+HHKit.m"; sourceTree = "<group>"; };
+		6525DF9624AAB65B00664FC2 /* NSObject+HHKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+HHKit.h"; sourceTree = "<group>"; };
+		6525DF9724AAB65B00664FC2 /* NSObject+HHKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HHKit.m"; sourceTree = "<group>"; };
+		6525DF9924AC16A100664FC2 /* WKWebView+HHPost.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WKWebView+HHPost.h"; sourceTree = "<group>"; };
+		6525DF9A24AC16A100664FC2 /* WKWebView+HHPost.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "WKWebView+HHPost.m"; sourceTree = "<group>"; };
+		6525DF9C24AC24B000664FC2 /* HHWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHWebViewController.h; sourceTree = "<group>"; };
+		6525DF9D24AC24B000664FC2 /* HHWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHWebViewController.m; sourceTree = "<group>"; };
+		6525DF9F24AC24DC00664FC2 /* HHKit_WebView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HHKit_WebView.bundle; sourceTree = "<group>"; };
+		6525DFA124AC277800664FC2 /* HHKit_WekView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHKit_WekView.h; sourceTree = "<group>"; };
+		6525DFA324B14C7300664FC2 /* HH_WebViewJavascriptBridgeBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HH_WebViewJavascriptBridgeBase.m; sourceTree = "<group>"; };
+		6525DFA424B14C7300664FC2 /* HH_WKWebViewJavascriptBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HH_WKWebViewJavascriptBridge.m; sourceTree = "<group>"; };
+		6525DFA624B14C7300664FC2 /* HH_WebViewJavascriptBridge_JS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HH_WebViewJavascriptBridge_JS.h; sourceTree = "<group>"; };
+		6525DFA724B14C7300664FC2 /* HH_WebViewJavascriptBridgeBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HH_WebViewJavascriptBridgeBase.h; sourceTree = "<group>"; };
+		6525DFA824B14C7300664FC2 /* HH_WebViewJavascriptBridge_JS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HH_WebViewJavascriptBridge_JS.m; sourceTree = "<group>"; };
+		6525DFAA24B14C7300664FC2 /* HH_WKWebViewJavascriptBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HH_WKWebViewJavascriptBridge.h; sourceTree = "<group>"; };
+		6525DFB324B1541300664FC2 /* HHVC_WKWebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHVC_WKWebView.h; sourceTree = "<group>"; };
+		6525DFB424B1541300664FC2 /* HHVC_WKWebView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHVC_WKWebView.m; sourceTree = "<group>"; };
 		65263712243889FF008637D6 /* UITextField+HHUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+HHUtilities.h"; sourceTree = "<group>"; };
 		65263713243889FF008637D6 /* UITextField+HHUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+HHUtilities.m"; sourceTree = "<group>"; };
 		652637172438D7DA008637D6 /* HHPhotoGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHPhotoGroupView.h; sourceTree = "<group>"; };
@@ -45,6 +85,17 @@
 		65263726243AA15C008637D6 /* HHDataEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHDataEntity.m; sourceTree = "<group>"; };
 		65263728243AA5D9008637D6 /* HHNetManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHNetManager.h; sourceTree = "<group>"; };
 		65263729243AA5D9008637D6 /* HHNetManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHNetManager.m; sourceTree = "<group>"; };
+		65DD80C924B1AA7400BC9CBB /* jquery-1.7.2.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery-1.7.2.min.js"; sourceTree = "<group>"; };
+		65DD80CB24B1ACC100BC9CBB /* HHTestWebLoadRequest.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = HHTestWebLoadRequest.html; sourceTree = "<group>"; };
+		65DD80CD24B1B47F00BC9CBB /* HHVC_WK_OC_JS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHVC_WK_OC_JS.h; sourceTree = "<group>"; };
+		65DD80CE24B1B47F00BC9CBB /* HHVC_WK_OC_JS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHVC_WK_OC_JS.m; sourceTree = "<group>"; };
+		65DD80D024B1B4B000BC9CBB /* HHVC_WK_AutoHeight.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHVC_WK_AutoHeight.h; sourceTree = "<group>"; };
+		65DD80D124B1B4B000BC9CBB /* HHVC_WK_AutoHeight.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHVC_WK_AutoHeight.m; sourceTree = "<group>"; };
+		65DD80D424B1B50500BC9CBB /* WKWebViewAutoHeightCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKWebViewAutoHeightCell.h; sourceTree = "<group>"; };
+		65DD80D524B1B50500BC9CBB /* WKWebViewAutoHeightCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKWebViewAutoHeightCell.m; sourceTree = "<group>"; };
+		65DD80D824B1B6F300BC9CBB /* WebViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewModel.h; sourceTree = "<group>"; };
+		65DD80D924B1B6F300BC9CBB /* WebViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewModel.m; sourceTree = "<group>"; };
+		65DD80DD24B2C77500BC9CBB /* HHTestOCJS.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = HHTestOCJS.html; sourceTree = "<group>"; };
 		71ED7596B9DE6DE0597251D4 /* Pods_HHKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HHKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD52A7BD24342A0D000C432E /* HHKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HHKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD52A7C024342A0D000C432E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -61,8 +112,8 @@
 		CD52A7DB24342ADD000C432E /* HHKitMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHKitMacro.h; sourceTree = "<group>"; };
 		CD52A7E024342F58000C432E /* UIImage+HHUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+HHUtilities.h"; sourceTree = "<group>"; };
 		CD52A7E124342F58000C432E /* UIImage+HHUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+HHUtilities.m"; sourceTree = "<group>"; };
-		CD52A7F924349814000C432E /* UIDevice+HHUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIDevice+HHUtilities.h"; sourceTree = "<group>"; };
-		CD52A7FA24349814000C432E /* UIDevice+HHUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+HHUtilities.m"; sourceTree = "<group>"; };
+		CD52A7F924349814000C432E /* UIScreen+HHUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScreen+HHUtilities.h"; sourceTree = "<group>"; };
+		CD52A7FA24349814000C432E /* UIScreen+HHUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+HHUtilities.m"; sourceTree = "<group>"; };
 		CD52A7FE2435826B000C432E /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		CD52A8012435D9C1000C432E /* HHTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHTool.h; sourceTree = "<group>"; };
 		CD52A8022435D9C2000C432E /* HHTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHTool.m; sourceTree = "<group>"; };
@@ -89,9 +140,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6525DF8C24A8364900664FC2 /* HHWKWebView */ = {
+			isa = PBXGroup;
+			children = (
+				6525DFA224B14C7300664FC2 /* HH_WebViewJavascriptBridge */,
+				6525DFA124AC277800664FC2 /* HHKit_WekView.h */,
+				6525DF8D24A8426200664FC2 /* HHWeakScriptMessageDelegate.h */,
+				6525DF8E24A8426200664FC2 /* HHWeakScriptMessageDelegate.m */,
+				6525DF9024A8691700664FC2 /* WKWebView+HHJavaScriptAlert.h */,
+				6525DF9124A8691700664FC2 /* WKWebView+HHJavaScriptAlert.m */,
+				6525DF9324A8727600664FC2 /* WKWebView+HHKit.h */,
+				6525DF9424A8727600664FC2 /* WKWebView+HHKit.m */,
+				6525DF9924AC16A100664FC2 /* WKWebView+HHPost.h */,
+				6525DF9A24AC16A100664FC2 /* WKWebView+HHPost.m */,
+				6525DF9C24AC24B000664FC2 /* HHWebViewController.h */,
+				6525DF9D24AC24B000664FC2 /* HHWebViewController.m */,
+				6525DF9F24AC24DC00664FC2 /* HHKit_WebView.bundle */,
+			);
+			path = HHWKWebView;
+			sourceTree = "<group>";
+		};
+		6525DFA224B14C7300664FC2 /* HH_WebViewJavascriptBridge */ = {
+			isa = PBXGroup;
+			children = (
+				6525DFA624B14C7300664FC2 /* HH_WebViewJavascriptBridge_JS.h */,
+				6525DFA824B14C7300664FC2 /* HH_WebViewJavascriptBridge_JS.m */,
+				6525DFA724B14C7300664FC2 /* HH_WebViewJavascriptBridgeBase.h */,
+				6525DFA324B14C7300664FC2 /* HH_WebViewJavascriptBridgeBase.m */,
+				6525DFAA24B14C7300664FC2 /* HH_WKWebViewJavascriptBridge.h */,
+				6525DFA424B14C7300664FC2 /* HH_WKWebViewJavascriptBridge.m */,
+			);
+			path = HH_WebViewJavascriptBridge;
+			sourceTree = "<group>";
+		};
+		6525DFAF24B1532700664FC2 /* WKWebView */ = {
+			isa = PBXGroup;
+			children = (
+				65DD80D724B1B6D000BC9CBB /* Model */,
+				65DD80D324B1B4DB00BC9CBB /* View */,
+				65DD80C824B1AA5A00BC9CBB /* Resources */,
+				6525DFB324B1541300664FC2 /* HHVC_WKWebView.h */,
+				6525DFB424B1541300664FC2 /* HHVC_WKWebView.m */,
+				65DD80CD24B1B47F00BC9CBB /* HHVC_WK_OC_JS.h */,
+				65DD80CE24B1B47F00BC9CBB /* HHVC_WK_OC_JS.m */,
+				65DD80D024B1B4B000BC9CBB /* HHVC_WK_AutoHeight.h */,
+				65DD80D124B1B4B000BC9CBB /* HHVC_WK_AutoHeight.m */,
+			);
+			path = WKWebView;
+			sourceTree = "<group>";
+		};
 		652637152438D76E008637D6 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				6525DF8C24A8364900664FC2 /* HHWKWebView */,
 				652637162438D7C4008637D6 /* HHPotoGroupView */,
 			);
 			path = Component;
@@ -111,6 +212,7 @@
 			children = (
 				6526371F2439AE2E008637D6 /* Base */,
 				6526371B2439AB81008637D6 /* UITextField */,
+				6525DFAF24B1532700664FC2 /* WKWebView */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -142,6 +244,34 @@
 				65263729243AA5D9008637D6 /* HHNetManager.m */,
 			);
 			path = HHNetManager;
+			sourceTree = "<group>";
+		};
+		65DD80C824B1AA5A00BC9CBB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				65DD80DD24B2C77500BC9CBB /* HHTestOCJS.html */,
+				65DD80CB24B1ACC100BC9CBB /* HHTestWebLoadRequest.html */,
+				65DD80C924B1AA7400BC9CBB /* jquery-1.7.2.min.js */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		65DD80D324B1B4DB00BC9CBB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				65DD80D424B1B50500BC9CBB /* WKWebViewAutoHeightCell.h */,
+				65DD80D524B1B50500BC9CBB /* WKWebViewAutoHeightCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		65DD80D724B1B6D000BC9CBB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				65DD80D824B1B6F300BC9CBB /* WebViewModel.h */,
+				65DD80D924B1B6F300BC9CBB /* WebViewModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		8BF774427F80F3582DC2D5E2 /* Frameworks */ = {
@@ -216,12 +346,14 @@
 		CD52A7DC24342D19000C432E /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				6525DF9624AAB65B00664FC2 /* NSObject+HHKit.h */,
+				6525DF9724AAB65B00664FC2 /* NSObject+HHKit.m */,
 				CD52A80A2436C589000C432E /* NSString+HHUtilities.h */,
 				CD52A80B2436C589000C432E /* NSString+HHUtilities.m */,
 				CD52A7E024342F58000C432E /* UIImage+HHUtilities.h */,
 				CD52A7E124342F58000C432E /* UIImage+HHUtilities.m */,
-				CD52A7F924349814000C432E /* UIDevice+HHUtilities.h */,
-				CD52A7FA24349814000C432E /* UIDevice+HHUtilities.m */,
+				CD52A7F924349814000C432E /* UIScreen+HHUtilities.h */,
+				CD52A7FA24349814000C432E /* UIScreen+HHUtilities.m */,
 				CD52A8042436C36D000C432E /* UIView+HHUtilities.h */,
 				CD52A8052436C36D000C432E /* UIView+HHUtilities.m */,
 				CD52A8072436C56C000C432E /* UIViewController+HHUtilities.h */,
@@ -302,9 +434,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6525DFA024AC24DC00664FC2 /* HHKit_WebView.bundle in Resources */,
+				65DD80CA24B1AA7400BC9CBB /* jquery-1.7.2.min.js in Resources */,
 				CD52A7FF2435826B000C432E /* Main.storyboard in Resources */,
 				CD52A7D024342A0E000C432E /* LaunchScreen.storyboard in Resources */,
+				65DD80CC24B1ACC100BC9CBB /* HHTestWebLoadRequest.html in Resources */,
 				CD52A7CD24342A0E000C432E /* Assets.xcassets in Resources */,
+				65DD80DE24B2C77500BC9CBB /* HHTestOCJS.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,17 +494,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				65263727243AA15C008637D6 /* HHDataEntity.m in Sources */,
+				6525DF9B24AC16A100664FC2 /* WKWebView+HHPost.m in Sources */,
+				6525DF8F24A8426200664FC2 /* HHWeakScriptMessageDelegate.m in Sources */,
 				CD52A7C824342A0D000C432E /* ViewController.m in Sources */,
 				CD52A8062436C36D000C432E /* UIView+HHUtilities.m in Sources */,
+				65DD80D224B1B4B000BC9CBB /* HHVC_WK_AutoHeight.m in Sources */,
+				6525DFAE24B14C7400664FC2 /* HH_WebViewJavascriptBridge_JS.m in Sources */,
 				CD52A7C224342A0D000C432E /* AppDelegate.m in Sources */,
 				CD52A80C2436C589000C432E /* NSString+HHUtilities.m in Sources */,
 				CD52A7D324342A0E000C432E /* main.m in Sources */,
+				65DD80CF24B1B47F00BC9CBB /* HHVC_WK_OC_JS.m in Sources */,
+				6525DFB524B1541300664FC2 /* HHVC_WKWebView.m in Sources */,
+				6525DF9224A8691700664FC2 /* WKWebView+HHJavaScriptAlert.m in Sources */,
+				65DD80D624B1B50500BC9CBB /* WKWebViewAutoHeightCell.m in Sources */,
+				6525DF9E24AC24B000664FC2 /* HHWebViewController.m in Sources */,
 				CD52A80F2436E77E000C432E /* UITextView+HHUtilities.m in Sources */,
 				65263714243889FF008637D6 /* UITextField+HHUtilities.m in Sources */,
 				CD52A7E224342F58000C432E /* UIImage+HHUtilities.m in Sources */,
 				6526371E2439ABBD008637D6 /* HHVC_TextField.m in Sources */,
-				CD52A7FB24349814000C432E /* UIDevice+HHUtilities.m in Sources */,
+				CD52A7FB24349814000C432E /* UIScreen+HHUtilities.m in Sources */,
 				652637222439AE3D008637D6 /* HHBaseViewController.m in Sources */,
+				65DD80DA24B1B6F300BC9CBB /* WebViewModel.m in Sources */,
+				6525DFAC24B14C7400664FC2 /* HH_WKWebViewJavascriptBridge.m in Sources */,
+				6525DFAB24B14C7300664FC2 /* HH_WebViewJavascriptBridgeBase.m in Sources */,
+				6525DF9824AAB65B00664FC2 /* NSObject+HHKit.m in Sources */,
+				6525DF9524A8727600664FC2 /* WKWebView+HHKit.m in Sources */,
 				652637192438D7DA008637D6 /* HHPhotoGroupView.m in Sources */,
 				6526372A243AA5D9008637D6 /* HHNetManager.m in Sources */,
 				CD52A7C524342A0D000C432E /* SceneDelegate.m in Sources */,
@@ -509,7 +659,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TZK5V467Y4;
 				INFOPLIST_FILE = HHKit/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -528,7 +678,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TZK5V467Y4;
 				INFOPLIST_FILE = HHKit/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
